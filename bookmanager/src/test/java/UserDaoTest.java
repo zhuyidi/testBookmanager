@@ -18,19 +18,9 @@ public class UserDaoTest {
         JdbcOperations jdbcOperations = dataConfig.jdbcTemplate(dataSource);
         UserLoginVO user = null;
         UserPO userPO = null;
-//
-//        UserService userService = new UserServiceImpl(jdbcOperations);
-//        user = userService.getPasswordAndUidByName("祝一迪");
-//        System.out.println(user.toString());
 
-
-        String test = "123.4a";
-        try {
-            Integer integer = new Integer(test);
-
-            Double dou = new Double(test);
-        } catch (NumberFormatException e) {
-            System.out.println("不是数字");
-        }
+        UserService userService = new UserServiceImpl(jdbcOperations);
+        user = userService.getPasswordAndUidByName("祝一迪");
+        System.out.println(user.toString());
     }
  }

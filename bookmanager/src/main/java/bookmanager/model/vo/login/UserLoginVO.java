@@ -1,11 +1,29 @@
 package bookmanager.model.vo.login;
 
+import bookmanager.annotation.Column;
+import bookmanager.annotation.Table;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 /**
  * Created by dela on 12/5/17.
  */
+
+@Table(name = "cs_user")
 public class UserLoginVO {
+
+    @Column(name = "uid")
     private int uid;
+
+    @Column(name = "name")
+    @NotNull
+    @Size(min=6, max=16)
     private String name;
+
+    @Column(name = "password")
+    @NotNull
+    @Size(min=6, max=16)
     private String password;
 
     public UserLoginVO() {

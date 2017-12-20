@@ -3,15 +3,10 @@ package bookmanager.dao.dbimpl;
 import bookmanager.dao.dbservice.UserService;
 import bookmanager.model.po.UserPO;
 import bookmanager.model.vo.login.UserLoginVO;
-import bookmanager.utilclass.JdbcRowMapper;
+import bookmanager.dao.rowmapper.JdbcRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcOperations;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-
-import javax.sql.rowset.JdbcRowSet;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 /**
  * Created by dela on 11/23/17.

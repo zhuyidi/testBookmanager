@@ -22,16 +22,17 @@ public class LoginFilter extends OncePerRequestFilter {
 
         String LOGIN_PAGE = "index.jsp"; //未登录首页
         String uri = httpServletRequest.getRequestURI(); // 请求的URI
-        String[] notFilterUri = {"index.jsp"}; // 不过滤的URI数组
+        String[] notFilterUri = {"index.jsp", "img", "js", "css", "login"}; // 不过滤的URI数组
         boolean doFilter = true; // 是否过滤的标志
+        Object session = null;
 
         // 也可以设定包括固定字符串的URI才会被过滤
 
         for (String s : notFilterUri) {
-            System.out.println(uri);
+//            System.out.println(uri);
             // 如果当前请求的uri包含不过滤的URI数组中的URI, 则不执行过滤
             if (uri.indexOf(s) != -1) {
-                System.out.println(uri.indexOf(uri));
+//                System.out.println(uri.indexOf(uri));
                 doFilter = false;
                 break;
             }
@@ -42,12 +43,14 @@ public class LoginFilter extends OncePerRequestFilter {
             // 从session中获取用户的登录令牌
 
             try {
-                System.out.println(httpServletRequest.getSession(false).getAttribute("uid"));
-                Object object = httpServletRequest.getSession(false).getAttribute("uid");
+//                System.out.println("getSession(uid) :" + httpServletRequest.getSession(false).getAttribute("uid"));
+                session = httpServletRequest.getSession(false).getAttribute("uid");
 
-                System.out.println(object == null);
+            } catch (NullPointerException e) {
+            }
+//                System.out.println("session==null:" + session == null);
 
-                if (null == object) {
+                if (null == session) {
                     // 如果当前的操作的用户没有登录令牌, 那就弹出弹框提示重新登录, 并跳转到未登录页面
                     // 设置request和response的字符集, 防止乱码
                     httpServletRequest.setCharacterEncoding("UTF-8");
@@ -67,8 +70,6 @@ public class LoginFilter extends OncePerRequestFilter {
                     filterChain.doFilter(httpServletRequest, httpServletResponse);
                 }
 
-            } catch (NullPointerException e) {
-            }
 
         } else {
             // 如果不执行过滤, 则继续执行后面的servlet
