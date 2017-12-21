@@ -18,27 +18,11 @@ import java.sql.SQLException;
 public class ReturnInfoServiceImpl implements ReturnInfoService {
     private JdbcOperations jdbcOperations;
 
-    private final static String SAVE = "INSERT INTO return_info(book_info_pk_id, cs_user_uid, return_date) VALUES(?, ?, ?)";
-
-
     @Autowired
     public ReturnInfoServiceImpl(JdbcOperations jdbc) {
         this.jdbcOperations = jdbc;
     }
 
     public void save(ReturnInfoPO returnInfo) {
-        jdbcOperations.update(SAVE, returnInfo.getBookInfoPkId(), returnInfo.getUserId(), returnInfo.getReturnDate());
-    }
-
-    private final static class ReturnInfoRowMapper implements RowMapper<ReturnInfoPO> {
-
-        public ReturnInfoPO mapRow(ResultSet resultSet, int i) throws SQLException {
-            return new ReturnInfoPO(
-                    resultSet.getInt(1),
-                    resultSet.getInt(2),
-                    resultSet.getInt(3),
-                    resultSet.getString(4)
-            );
-        }
     }
 }

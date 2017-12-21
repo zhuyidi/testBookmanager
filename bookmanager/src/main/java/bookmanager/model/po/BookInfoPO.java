@@ -1,18 +1,35 @@
 package bookmanager.model.po;
 
 
+import bookmanager.annotation.Column;
+import bookmanager.annotation.Table;
+
 /**
  * Created by dela on 11/22/17.
  */
 
 //书籍信息表
+@Table(name = "book_info")
 public class BookInfoPO {
+    @Column(name = "pk_id")
     private int pkId;   //无意义主键
+
+    @Column(name = "ugk_name")
     private String ugkName;  //书名(组合索引)
+
+    @Column(name = "author")
     private String author;  //作者
+
+    @Column(name = "ugk_uid")
     private int ugkUid;     //所有者(即用户表里的id)(组合索引)
+
+    @Column(name = "amount")
     private int amount;     //数量
+
+    @Column(name = "upload_date")
     private String uploadDate; //上传时间
+
+    @Column(name = "describ")
     private String describ;  //书籍描述
 
     public BookInfoPO() { }

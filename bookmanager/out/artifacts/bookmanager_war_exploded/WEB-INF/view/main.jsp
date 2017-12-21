@@ -11,23 +11,23 @@
         <meta name="HandleFriendly" content="true">
         <!--font-awesome矢量图标-->
         <link href="/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
-        <link href="/css/main/bootstrap.min.css" rel="stylesheet">
-        <link href="/css/main/index.css" rel="stylesheet">
-        <link href="/css/main/index1.css" rel="stylesheet">
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/index.css" rel="stylesheet">
+        <link href="/css/index1.css" rel="stylesheet">
     </head>
 
     <body>
         <header>
             <div id="hea">
-                <img id="index_head" src="/img/index_head.png" />
-                <a id="head" href="../../index.jsp">XiyouLinux Group 图书借阅</a>
+                <img id="index_head" src="img/index_head.png" />
+                <a id="head" href="main.jsp">XiyouLinux Group 图书借阅</a>
                 <div id="index1_input">
                     <input type="text" placeholder="搜索书名/作者/归属者">
                     <button class="btn btn-link">提交</button>
-                    <a><i class="fa fa-file-text fa-fw"></i>我的书籍</a>
-                    <a><i class="fa fa-tags fa-fw"></i>上传数据</a>
+                    <a href="mybooks.html"><i class="fa fa-file-text fa-fw"></i>我的书籍</a>
+                    <a href="pushbook.html"><i class="fa fa-tags fa-fw"></i>上传数据</a>
                 </div>
-                <a id="index1_sign">退出登录</a>
+                <a id="index1_sign" href="../../index.jsp">退出登录</a>
             </div>
         </header>
         <div id="main">
@@ -44,7 +44,7 @@
                 <a>大数据与云计算</a>
                 <a>底层分析与开发工具</a>
                 <a>教科书</a>
-                <a id="tag_all">全部标签</a>
+                <a id="tag_all" href="alltags.html">全部标签</a>
             </div>
             <div class="rows">
                 <div id="left1" class="col-xs-12 col-md-9">
@@ -64,7 +64,7 @@
                     </div>
                     <div class="rows">
                         <div class="col-xs-12 col-md-3 book_img">
-                            <img src="/img/book0.jpeg">
+                            <img src="${pageContext.request.contextPath}/img/book0.jpeg">
                         </div>
                         <div class="book_info col-xs-12 col-md-9">
                             <p>《计算机操作系统》-----黄水松</p>
@@ -99,7 +99,19 @@
                     <p class="index1_con">祝一迪从祝一迪处借阅《计算机操作系统》</p>
                     <p class="index1_date">2017-08-07 17:33:36</p>
                     <p class="index1_con">祝一迪从祝一迪处借阅《计算机操作系统》</p>
+                    <div id="index_pingination">
+                        <ul class="pagination">
+                            <li><a href="#">&laquo;</a></li>
+                            <li class="pa_in"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">&raquo;</a></li>
+                        </ul>
+                    </div>
                 </div>
+
                 <div style="clear:both"></div>
             </div>
             <div style="clear:both"></div>
@@ -140,10 +152,10 @@
                 <p>All Rights Reserved</p>
             </div>
         </footer>
-        <script type="text/javascript" src="/js/main/jquery.min.js"></script>
-        <script type="text/javascript" src="/js/main/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/js/main/1.js"></script>
-        <script type="text/javascript" src="/js/main/index.js"></script>
+        <script type="text/javascript" src="/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/js/canvas1.js"></script>
+        <script type="text/javascript" src="/js/index.js"></script>
     </body>
 
 </html>

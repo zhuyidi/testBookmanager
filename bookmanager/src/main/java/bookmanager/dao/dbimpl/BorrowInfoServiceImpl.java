@@ -18,27 +18,12 @@ import java.sql.SQLException;
 public class BorrowInfoServiceImpl implements BorrowInfoService {
     private JdbcOperations jdbcOperations;
 
-    private final static String SAVE = "INSERT INTO borrow_info(book_info_pk_id, cs_user_uid, borrow_date) VALUES(?, ?, ?)";
-
-
     @Autowired
     public BorrowInfoServiceImpl(JdbcOperations jdbc) {
         this.jdbcOperations = jdbc;
     }
 
     public void save(BorrowInfoPO borrowInfo) {
-        jdbcOperations.update(SAVE, borrowInfo.getBookInfoPkId(), borrowInfo.getUserId(), borrowInfo.getBorrowDate());
     }
 
-    private final static class BorrowInfoRowMapper implements RowMapper<BorrowInfoPO> {
-
-        public BorrowInfoPO mapRow(ResultSet resultSet, int i) throws SQLException {
-            return new BorrowInfoPO(
-                    resultSet.getInt(1),
-                    resultSet.getInt(2),
-                    resultSet.getInt(3),
-                    resultSet.getString(4)
-            );
-        }
-    }
 }

@@ -1,26 +1,61 @@
 package bookmanager.model.po;
 
+import bookmanager.annotation.Column;
+import bookmanager.annotation.Table;
+
 /**
  * Created by dela on 11/22/17.
  */
 
 //cs用户表
+@Table(name = "cs_user")
 public class UserPO {
+    @Column(name = "uid")
     private int uid;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "privilege")
     private int privilege;
+
+    @Column(name = "password")
     private String password;
+
+    @Column(name = "sex")
     private int sex;
+
+    @Column(name = "phone")
     private String phone;
+
+    @Column(name = "mail")
     private String mail;
+
+    @Column(name = "qq")
     private String qq;
+
+    @Column(name = "wechat")
     private String wechat;
+
+    @Column(name = "blog")
     private String blog;
+
+    @Column(name = "github")
     private String github;
+
+    @Column(name = "native")
     private String _native;     //native是java的一个关键字, 但是数据库里有名为native的属性, 所以用前置下划线在这里区分
+
+    @Column(name = "grade")
     private String grade;
+
+    @Column(name = "major")
     private String major;
+
+    @Column(name = "workplace")
     private String workplace;
+
+    @Column(name = "job")
     private String job;
 
     public UserPO() { }

@@ -35,7 +35,8 @@ public class UserServiceImpl implements UserService {
     }
 
     public UserLoginVO getPasswordAndUidByName(String name) {
-        return (UserLoginVO) jdbcOperations.queryForObject(GET_PASSWORD_AND_UID_BY_NAME, JdbcRowMapper.newInstance(UserLoginVO.class), name);
+        return (UserLoginVO) jdbcOperations.queryForObject(GET_PASSWORD_AND_UID_BY_NAME,
+                JdbcRowMapper.newInstance(UserLoginVO.class), name);
     }
 
 
