@@ -1,3 +1,16 @@
+<%@ page import="bookmanager.model.po.BookLabelPO" %>
+<%@ page import="java.util.List" %>
+<%@ page import="bookmanager.dao.dbservice.BookLabelService" %>
+<%@ page import="bookmanager.dao.dbimpl.BookLabelServiceImpl" %>
+<%@ page import="org.springframework.jdbc.core.JdbcOperations" %>
+<%@ page import="bookmanager.config.database.DataConfig" %>
+<%@ page import="javax.sql.DataSource" %>
+<%@ page import="bookmanager.model.po.BookInfoPO" %>
+<%@ page import="bookmanager.dao.dbservice.BookInfoService" %>
+<%@ page import="bookmanager.dao.dbimpl.BookInfoServiceImpl" %>
+<%@ page import="bookmanager.dao.dbservice.UserService" %>
+<%@ page import="bookmanager.dao.dbimpl.UserServiceImpl" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -29,22 +42,85 @@
             </div>
         </header>
         <div id="main">
-            <div id="tag">
-                <a>编程语言</a>
-                <a>数据结构与算法</a>
-                <a>软件工程</a>
-                <a>数据库</a>
-                <a>操作系统</a>
-                <a>计算机网络</a>
-                <a>web后台</a>
-                <a>前端</a>
-                <a>人工智能</a>
-                <a>大数据与云计算</a>
-                <a>底层分析与开发工具</a>
-                <a>教科书</a>
-                <a id="tag_all">全部标签</a>
-            </div>
+
+            <%--<div id="tag">--%>
+                <%--<a>编程语言</a>--%>
+                <%--<a>数据结构与算法</a>--%>
+                <%--<a>软件工程</a>--%>
+                <%--<a>数据库</a>--%>
+                <%--<a>操作系统</a>--%>
+                <%--<a>计算机网络</a>--%>
+                <%--<a>web后台</a>--%>
+                <%--<a>前端</a>--%>
+                <%--<a>人工智能</a>--%>
+                <%--<a>大数据与云计算</a>--%>
+                <%--<a>底层分析与开发工具</a>--%>
+                <%--<a>教科书</a>--%>
+                <%--<a id="tag_all">全部标签</a>--%>
+            <%--</div>--%>
+
+                <div id="tag">
+            <%
+                DataConfig dataConfig = new DataConfig();
+                DataSource dataSource = dataConfig.dataSource();
+                JdbcOperations jdbcOperations = dataConfig.jdbcTemplate(dataSource);
+
+                List<BookLabelPO> bookLabelPOS = null;
+                BookLabelService bookLabelService = new BookLabelServiceImpl(jdbcOperations);
+
+                bookLabelPOS = bookLabelService.getBookLabelById(0);
+
+                for (BookLabelPO bookLabelPO : bookLabelPOS) {
+            %>
+
+                <a href="/label/<%=bookLabelPO.getPkId()%>"><%=bookLabelPO.getName()%></a>
+
+            <%
+                }
+            %>
+                </div>
+
+
+            <%--<c:forEach items="${bookLabelPOS}" var = "bl">--%>
+                <%--<a href="/label/${bl.getPkId()}">${bl.getName()}</a>--%>
+            <%--</c:forEach>--%>
+
+
             <div id="left">
+
+                <%
+                    if (request.getAttribute("books") == null) {
+                        BookInfoService bookInfoService = new BookInfoServiceImpl(jdbcOperations);
+                        List<BookInfoPO> bookInfoPOS = bookInfoService.getBookInfoByBookLabelParentId(1);
+                        UserService userService = new UserServiceImpl(jdbcOperations);
+
+                        for (BookInfoPO bookInfoPO : bookInfoPOS) {
+                %>
+
+                <div class="rows">
+                    <div class="col-xs-12 col-md-3 book_img">
+                        <img src="/img/book0.jpeg">
+                    </div>
+                    <div class="book_info col-xs-12 col-md-9">
+                        <p>《<%= bookInfoPO.getUgkName()%>》-----<%=bookInfoPO.getAuthor()%></p>
+                        <p><%=bookInfoPO.getDescrib()%></p>
+                        <p><span><i class="fa fa-user"></i><%=userService.getUserById(bookInfoPO.getUgkUid()).getName()%></span>
+                            <span><i class="fa fa-book"></i><%=bookInfoPO.getAmount()%>本</span>
+                            <span><i class="fa fa-clock-o"></i><%=bookInfoPO.getUploadDate()%></span>
+                        </p>
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+
+                <%
+                        }
+                    }
+                %>
+
+                <%--<c:forEach>--%>
+
+
+
                 <div class="rows">
                     <div class="col-xs-12 col-md-3 book_img">
                         <img src="/img/book0.jpeg">
@@ -73,6 +149,10 @@
                     </div>
                     <div style="clear:both"></div>
                 </div>
+
+
+
+
                 <div id="index_pingination">
                     <ul class="pagination">
                         <li><a href="#">&laquo;</a></li>

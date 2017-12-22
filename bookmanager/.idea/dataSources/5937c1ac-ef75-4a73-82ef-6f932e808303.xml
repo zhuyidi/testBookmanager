@@ -148,7 +148,7 @@ ugk_uid</ColNames>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
-    <column id="40" parent="13" name="label_tree_pk_id">
+    <column id="40" parent="13" name="book_label_pk_id">
       <Position>3</Position>
       <DataType>int(10) unsigned|0</DataType>
       <NotNull>1</NotNull>
@@ -158,7 +158,7 @@ ugk_uid</ColNames>
       <ColNames>book_info_pk_id</ColNames>
     </index>
     <index id="42" parent="13" name="book_relation_label_label_tree_pk_id_fk">
-      <ColNames>label_tree_pk_id</ColNames>
+      <ColNames>book_label_pk_id</ColNames>
     </index>
     <key id="43" parent="13" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>

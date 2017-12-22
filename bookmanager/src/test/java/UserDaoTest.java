@@ -26,9 +26,11 @@ public class UserDaoTest {
         UserService userService = new UserServiceImpl(jdbcOperations);
         user = userService.getPasswordAndUidByName("祝一迪");
         System.out.println(user.toString());
+//
+//        BookLabelService bookLabelService = new BookLabelServiceImpl(jdbcOperations);
+//        List<BookLabelPO> bookLabelPOS = bookLabelService.getBookLabelById(0);
+//        System.out.println(bookLabelPOS.toString());
 
-        BookLabelService bookLabelService = new BookLabelServiceImpl(jdbcOperations);
-        List<BookLabelPO> bookLabelPOS = bookLabelService.getBookLabelById(0);
-        System.out.println(bookLabelPOS.toString());
+
     }
  }

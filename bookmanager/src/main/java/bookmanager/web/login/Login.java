@@ -1,5 +1,6 @@
 package bookmanager.web.login;
 
+import bookmanager.dao.dbservice.BookLabelService;
 import bookmanager.dao.dbservice.UserService;
 import bookmanager.model.vo.login.UserLoginVO;
 import bookmanager.utilclass.MD5;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.io.UnsupportedEncodingException;
@@ -20,10 +22,12 @@ import java.io.UnsupportedEncodingException;
 @RequestMapping(value = "/login")
 public class Login {
     private UserService userService;
+    private BookLabelService bookLabelService;
 
     @Autowired
-    public Login(UserService userService) {
+    public Login(UserService userService, BookLabelService bookLabelService) {
         this.userService = userService;
+        this.bookLabelService = bookLabelService;
     }
 
     // 当URL为/login且请求类型为GET的时候, 默认返回index.jsp页面(即未登录主页面)
@@ -34,7 +38,7 @@ public class Login {
 
     // 当URL为/login且请求类型为POST的时候, 处理用户登录表单
     @RequestMapping(method = RequestMethod.POST)
-    public String userLogin(@Valid UserLoginVO user, HttpSession session) throws UnsupportedEncodingException {
+    public String userLogin(@Valid UserLoginVO user, HttpSession session, HttpServletRequest httpServletRequest) throws UnsupportedEncodingException {
         String username = new String(user.getName().getBytes("iso-8859-1"), "utf-8");
 //        System.out.println("username:" + username);
 
@@ -43,6 +47,7 @@ public class Login {
             if (checkPassword(username, user.getPassword(), user)) {
                 session.setAttribute("uid", user.getUid());
 
+                httpServletRequest.setAttribute("bookLabel", bookLabelService.getBookLabelById(0));
                 return "main";
             } else {
                 // 若不成功, 则带上错误参数返回index.jsp页面(未登录前首页)

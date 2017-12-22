@@ -5,29 +5,27 @@
 
     <head>
         <meta charset="UTF-8">
-        <%--<meta http-equiv="Content-Type"--%>
-              <%--content="text/html; charset=utf-8"/>--%>
         <title>linux图书管理</title>
         <meta name="viewport" content="width=device-width,inital-scale=1,maxmum-scale=1,user-scalable=no">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="HandleFriendly" content="true">
         <!--font-awesome矢量图标-->
         <link href="/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
-        <link href="/css/main/bootstrap.min.css" rel="stylesheet">
-        <link href="/css/main/index.css" rel="stylesheet">
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/index.css" rel="stylesheet">
     </head>
 
     <body>
         <header>
             <div id="hea">
                 <img id="index_head" src="/img/index_head.png" />
-                <a id="head" href="startindex.jsp">XiyouLinux Group 图书借阅</a>
+                <a id="head" href="index.jsp">XiyouLinux Group 图书借阅</a>
                 <div id="index_input">
                     <input type="text" placeholder="搜索书名/作者/归属者">
                     <button class="btn btn-link">提交</button>
                 </div>
                 <a id="index_sign" href="javascript:showDialog();">立即登录</a>
-                <%--<a id="index_sign">立即登录</a>--%>
+            <%--<a id="index_sign">立即登录</a>--%>
             </div>
         </header>
         <div id="main">
@@ -125,11 +123,10 @@
                 <p>All Rights Reserved</p>
             </div>
         </footer>
-        <script type="text/javascript" src="/js/main/jquery.min.js"></script>
-        <script type="text/javascript" src="/js/main/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/js/main/1.js"></script>
+        <script type="text/javascript" src="/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/js/canvas1.js"></script>
     </body>
-
 
 
     <style type="text/css">
@@ -364,7 +361,5 @@
         }
 
     </script>
-
-
 
 </html>

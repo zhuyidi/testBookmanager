@@ -19,4 +19,6 @@ public interface BookInfoService {
 
     //修改一本书籍的信息
     void updateBookInfo(BookInfoPO bookInfo);
+
+    List<BookInfoPO> getBookInfoByBookLabelParentId(int bookParentId);
 }
