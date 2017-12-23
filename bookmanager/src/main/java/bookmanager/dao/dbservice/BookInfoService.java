@@ -2,6 +2,7 @@ package bookmanager.dao.dbservice;
 
 import bookmanager.model.po.BookInfoPO;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,4 +22,7 @@ public interface BookInfoService {
     void updateBookInfo(BookInfoPO bookInfo);
 
     List<BookInfoPO> getBookInfoByBookLabelParentId(int bookParentId);
+
+
+    Date test(int id);
 }

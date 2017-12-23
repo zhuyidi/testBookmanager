@@ -42,37 +42,37 @@
 
 /* 所上传的书 */
 
-#books_push,
+.books_push,
 #borrow .rows {
     background-color: #f3f3f3;
     margin-bottom: 15px;
     padding: 10px 15px;
 }
 
-#books_push img,
+.books_push img,
 #borrow img {
     width: 120px;
     height: 150px;
 }
 
-#books_push div:nth-of-type(2),
+.books_push div:nth-of-type(2),
 #borrow .rows div:nth-of-type(2) {
     padding-left: 30px;
 }
 
-#books_push div:nth-of-type(3),
+.books_push div:nth-of-type(3),
 #borrow .rows div:nth-of-type(3) {
     text-align: center;
 }
 
-#books_push button,
+.books_push button,
 #borrow button {
     background-color: #009a61;
     color: white;
     margin: 20px 0;
 }
 
-#books_push button:hover,
+.books_push button:hover,
 #borrow button:hover {
     background-color: #006741;
 }

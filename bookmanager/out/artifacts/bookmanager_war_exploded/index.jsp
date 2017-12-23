@@ -241,7 +241,7 @@
             background: url(/img/close_def.png) no-repeat;cursor: pointer;
 
         }
-        .ui-dialog-closebutton:hover{background:url(/img/close_hov.png);}
+        .ui-dialog-closebutton:hover{background:url(/img/close_def.png);}
 
         .ui-dialog-content{
             padding: 15px 20px;

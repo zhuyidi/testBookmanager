@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.stereotype.Repository;
 import sun.text.resources.cldr.bn.FormatData_bn_IN;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -47,6 +48,13 @@ public class BookInfoServiceImpl implements BookInfoService {
     public void updateBookInfo(BookInfoPO bookInfo) {
 
     }
+
+    public Date test(int id) {
+        return (Date) jdbcOperations.queryForObject("select upload_date from book_info where pk_id = ?",
+                JdbcRowMapper.newInstance(Date.class), id);
+    }
+
+
 
     // 通过一级分类的ID查询该一级分类下的所有的书
     public List<BookInfoPO> getBookInfoByBookLabelParentId(int bookParentId) {
