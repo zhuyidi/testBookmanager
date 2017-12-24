@@ -31,8 +31,8 @@ public class UserDaoTest {
 //        user = userService.getPasswordAndUidByName("祝一迪");
 //        System.out.println(user.toString());
 //
-        BookLabelService bookLabelService = new BookLabelServiceImpl(jdbcOperations);
-        List<BookLabelPO> bookLabelPOS = bookLabelService.getBookLabelById(0);
+//        BookLabelService bookLabelService = new BookLabelServiceImpl(jdbcOperations);
+//        List<BookLabelPO> bookLabelPOS = bookLabelService.getBookLabelById(0);
 //        System.out.println(bookLabelPOS.toString());
 //        Date date = new Date();
 //        System.out.println(DateToString.getStringDate(date));
