@@ -36,8 +36,8 @@ public class UserDaoTest {
 //        System.out.println(bookLabelPOS.toString());
 //        Date date = new Date();
 //        System.out.println(DateToString.getStringDate(date));
-        BookInfoService bookInfoService = new BookInfoServiceImpl(jdbcOperations);
-        System.out.println(DateToString.getStringDate(bookInfoService.test(1)));
+//        BookInfoService bookInfoService = new BookInfoServiceImpl(jdbcOperations);
+//        System.out.println(bookInfoService.test(1));
 
     }
  }

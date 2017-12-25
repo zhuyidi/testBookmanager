@@ -49,9 +49,9 @@ public class BookInfoServiceImpl implements BookInfoService {
 
     }
 
-    public Date test(int id) {
-        return (Date) jdbcOperations.queryForObject("select upload_date from book_info where pk_id = ?",
-                JdbcRowMapper.newInstance(Date.class), id);
+    public String test(int id) {
+        return jdbcOperations.queryForObject("select upload_date from book_info where pk_id = ?",
+                String.class, id);
     }
 
 

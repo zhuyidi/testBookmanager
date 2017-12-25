@@ -4,6 +4,8 @@ package bookmanager.model.po;
 import bookmanager.annotation.Column;
 import bookmanager.annotation.Table;
 
+import java.util.Date;
+
 /**
  * Created by dela on 11/22/17.
  */
@@ -85,7 +87,7 @@ public class BookInfoPO {
     }
 
     public String getUploadDate() {
-        return uploadDate;
+        return uploadDate.substring(0, 19);
     }
 
     public void setUploadDate(String uploadDate) {

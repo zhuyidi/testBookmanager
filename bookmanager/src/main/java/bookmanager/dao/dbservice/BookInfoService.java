@@ -24,5 +24,5 @@ public interface BookInfoService {
     List<BookInfoPO> getBookInfoByBookLabelParentId(int bookParentId);
 
 
-    Date test(int id);
+    String test(int id);
 }

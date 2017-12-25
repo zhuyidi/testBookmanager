@@ -114,41 +114,60 @@
 
                 <%
                         }
+                    } else {
+                            UserService userService = new UserServiceImpl(jdbcOperations);
+                %>
+
+                    <c:forEach items="${books}" var="book">
+                        <div class="rows">
+                            <div class="col-xs-12 col-md-3 book_img">
+                                <img src="/img/book0.jpeg">
+                            </div>
+                            <div class="book_info col-xs-12 col-md-9">
+                                <p>《${book.name}》-----${book.author}</p>
+                                <p>${book.describe}</p>
+                                <p><span><i class="fa fa-user"></i>${book.uid}</span>
+                                    <span><i class="fa fa-book"></i>${book.amount}本</span>
+                                    <span><i class="fa fa-clock-o"></i>${book.uploadDate}</span>
+                                </p>
+                            </div>
+                            <div style="clear:both"></div>
+                        </div>
+                    </c:forEach>
+
+                <%
                     }
                 %>
 
-                <%--<c:forEach>--%>
 
-
-
-                <div class="rows">
-                    <div class="col-xs-12 col-md-3 book_img">
-                        <img src="/img/book0.jpeg">
-                    </div>
-                    <div class="book_info col-xs-12 col-md-9">
-                        <p>《计算机操作系统》-----黄水松</p>
-                        <p>计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读</p>
-                        <p><span><i class="fa fa-user"></i>祝一迪</span>
-                            <span><i class="fa fa-book"></i>一本</span>
-                            <span><i class="fa fa-clock-o"></i>2017/12/5/21:04</span>
-                        </p>
-                    </div>
-                    <div style="clear:both"></div>
-                </div>
-                <div class="rows">
-                    <div class="col-xs-12 col-md-3">
-                        <img src="/img/book0.jpeg">
-                    </div>
-                    <div class="book_info col-xs-12 col-md-9">
-                        <p>《计算机操作系统》-----黄水松</p>
-                        <p>计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读</p>
-                        <p><span><i class="fa fa-user"></i>祝一迪</span>
-                            <span><i class="fa fa-book"></i>一本</span>
-                            <span><i class="fa fa-clock-o"></i>2017/12/5/21:04</span>
-                        </p>
-                    </div>
-                    <div style="clear:both"></div>
-                </div>
+                <%--<div class="rows">--%>
+                    <%--<div class="col-xs-12 col-md-3 book_img">--%>
+                        <%--<img src="/img/book0.jpeg">--%>
+                    <%--</div>--%>
+                    <%--<div class="book_info col-xs-12 col-md-9">--%>
+                        <%--<p>《计算机操作系统》-----黄水松</p>--%>
+                        <%--<p>计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读</p>--%>
+                        <%--<p><span><i class="fa fa-user"></i>祝一迪</span>--%>
+                            <%--<span><i class="fa fa-book"></i>一本</span>--%>
+                            <%--<span><i class="fa fa-clock-o"></i>2017/12/5/21:04</span>--%>
+                        <%--</p>--%>
+                    <%--</div>--%>
+                    <%--<div style="clear:both"></div>--%>
+                <%--</div>--%>
+                <%--<div class="rows">--%>
+                    <%--<div class="col-xs-12 col-md-3">--%>
+                        <%--<img src="/img/book0.jpeg">--%>
+                    <%--</div>--%>
+                    <%--<div class="book_info col-xs-12 col-md-9">--%>
+                        <%--<p>《计算机操作系统》-----黄水松</p>--%>
+                        <%--<p>计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读</p>--%>
+                        <%--<p><span><i class="fa fa-user"></i>祝一迪</span>--%>
+                            <%--<span><i class="fa fa-book"></i>一本</span>--%>
+                            <%--<span><i class="fa fa-clock-o"></i>2017/12/5/21:04</span>--%>
+                        <%--</p>--%>
+                    <%--</div>--%>
+                    <%--<div style="clear:both"></div>--%>
+                <%--</div>--%>
 
 
 
