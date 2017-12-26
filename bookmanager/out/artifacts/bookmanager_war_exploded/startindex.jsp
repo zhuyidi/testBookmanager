@@ -19,7 +19,7 @@
         <header>
             <div id="hea">
                 <img id="index_head" src="/img/index_head.png" />
-                <a id="head" href="index.jsp">XiyouLinux Group 图书借阅</a>
+                <a id="head" href="WEB-INF/view/index.jsp">XiyouLinux Group 图书借阅</a>
                 <div id="index_input">
                     <input type="text" placeholder="搜索书名/作者/归属者">
                     <button class="btn btn-link">提交</button>

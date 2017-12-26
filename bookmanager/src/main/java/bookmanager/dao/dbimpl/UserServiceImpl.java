@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by dela on 11/23/17.
  */
@@ -19,6 +21,7 @@ public class UserServiceImpl implements UserService {
     private final static String GET_USER_BY_NAME = "SELECT * FROM cs_user WHERE name = ?";
     private final static String GET_USER_BY_ID = "SELECT * FROM cs_user WHERE uid = ?";
     private final static String GET_PASSWORD_AND_UID_BY_NAME = "SELECT uid, password FROM cs_user WHERE name = ?";
+    private final static String GET_USERNAMES_BY_UIDS = "SELECT name FROM cs_user IN ?";
 
 
     @Autowired
@@ -37,6 +40,10 @@ public class UserServiceImpl implements UserService {
     public UserLoginVO getPasswordAndUidByName(String name) {
         return (UserLoginVO) jdbcOperations.queryForObject(GET_PASSWORD_AND_UID_BY_NAME,
                 JdbcRowMapper.newInstance(UserLoginVO.class), name);
+    }
+
+    public List<String> getUsernamesByIds(List ids) {
+        return jdbcOperations.query(GET_USERNAMES_BY_UIDS, JdbcRowMapper.newInstance(String.class), ids);
     }
 
 

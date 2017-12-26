@@ -1,3 +1,16 @@
+<%@ page import="bookmanager.model.po.BookLabelPO" %>
+<%@ page import="java.util.List" %>
+<%@ page import="bookmanager.dao.dbservice.BookLabelService" %>
+<%@ page import="bookmanager.dao.dbimpl.BookLabelServiceImpl" %>
+<%@ page import="org.springframework.jdbc.core.JdbcOperations" %>
+<%@ page import="bookmanager.config.database.DataConfig" %>
+<%@ page import="javax.sql.DataSource" %>
+<%@ page import="bookmanager.model.po.BookInfoPO" %>
+<%@ page import="bookmanager.dao.dbservice.BookInfoService" %>
+<%@ page import="bookmanager.dao.dbimpl.BookInfoServiceImpl" %>
+<%@ page import="bookmanager.dao.dbservice.UserService" %>
+<%@ page import="bookmanager.dao.dbimpl.UserServiceImpl" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -19,7 +32,7 @@
         <header>
             <div id="hea">
                 <img id="index_head" src="/img/index_head.png" />
-                <a id="head" href="WEB-INF/view/index.jsp">XiyouLinux Group 图书借阅</a>
+                <a id="head" href="index.jsp">XiyouLinux Group 图书借阅</a>
                 <div id="index_input">
                     <input type="text" placeholder="搜索书名/作者/归属者">
                     <button class="btn btn-link">提交</button>
@@ -29,50 +42,79 @@
             </div>
         </header>
         <div id="main">
-            <div id="tag">
-                <a>编程语言</a>
-                <a>数据结构与算法</a>
-                <a>软件工程</a>
-                <a>数据库</a>
-                <a>操作系统</a>
-                <a>计算机网络</a>
-                <a>web后台</a>
-                <a>前端</a>
-                <a>人工智能</a>
-                <a>大数据与云计算</a>
-                <a>底层分析与开发工具</a>
-                <a>教科书</a>
-                <a id="tag_all">全部标签</a>
-            </div>
-            <div id="left">
-                <div class="rows">
-                    <div class="col-xs-12 col-md-3 book_img">
-                        <img src="/img/book0.jpeg">
-                    </div>
-                    <div class="book_info col-xs-12 col-md-9">
-                        <p>《计算机操作系统》-----黄水松</p>
-                        <p>计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读</p>
-                        <p><span><i class="fa fa-user"></i>祝一迪</span>
-                            <span><i class="fa fa-book"></i>一本</span>
-                            <span><i class="fa fa-clock-o"></i>2017/12/5/21:04</span>
-                        </p>
-                    </div>
-                    <div style="clear:both"></div>
+
+            <%--<div id="tag">--%>
+                <%--<a>编程语言</a>--%>
+                <%--<a>数据结构与算法</a>--%>
+                <%--<a>软件工程</a>--%>
+                <%--<a>数据库</a>--%>
+                <%--<a>操作系统</a>--%>
+                <%--<a>计算机网络</a>--%>
+                <%--<a>web后台</a>--%>
+                <%--<a>前端</a>--%>
+                <%--<a>人工智能</a>--%>
+                <%--<a>大数据与云计算</a>--%>
+                <%--<a>底层分析与开发工具</a>--%>
+                <%--<a>教科书</a>--%>
+                <%--<a id="tag_all">全部标签</a>--%>
+            <%--</div>--%>
+
+                <div id="tag">
+                    <c:forEach items="${labels}" var="label">
+                        <a href="/label/${label.pkId}">${label.name}</a>
+                    </c:forEach>
                 </div>
-                <div class="rows">
-                    <div class="col-xs-12 col-md-3">
-                        <img src="/img/book0.jpeg">
+
+                <c:forEach items="${books}" var="book">
+                    <div class="rows">
+                        <div class="col-xs-12 col-md-3 book_img">
+                            <img src="/img/book0.jpeg">
+                        </div>
+                        <div class="book_info col-xs-12 col-md-9">
+                            <p>《${book.key.name}》-----${book.key.author}</p>
+                            <p>${book.key.describe}</p>
+                            <p><span><i class="fa fa-user"></i>${book.value}</span>
+                                <span><i class="fa fa-book"></i>${book.key.amount}本</span>
+                                <span><i class="fa fa-clock-o"></i>${book.key.uploadDate}</span>
+                            </p>
+                        </div>
+                        <div style="clear:both"></div>
                     </div>
-                    <div class="book_info col-xs-12 col-md-9">
-                        <p>《计算机操作系统》-----黄水松</p>
-                        <p>计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读</p>
-                        <p><span><i class="fa fa-user"></i>祝一迪</span>
-                            <span><i class="fa fa-book"></i>一本</span>
-                            <span><i class="fa fa-clock-o"></i>2017/12/5/21:04</span>
-                        </p>
-                    </div>
-                    <div style="clear:both"></div>
-                </div>
+                </c:forEach>
+
+                <%----%>
+            <%--<div class="rows">--%>
+                <%--<div class="col-xs-12 col-md-3 book_img">--%>
+                    <%--<img src="/img/book0.jpeg">--%>
+                <%--</div>--%>
+                <%--<div class="book_info col-xs-12 col-md-9">--%>
+                    <%--<p>《计算机操作系统》-----黄水松</p>--%>
+                    <%--<p>计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读</p>--%>
+                    <%--<p><span><i class="fa fa-user"></i>祝一迪</span>--%>
+                        <%--<span><i class="fa fa-book"></i>一本</span>--%>
+                        <%--<span><i class="fa fa-clock-o"></i>2017/12/5/21:04</span>--%>
+                    <%--</p>--%>
+                <%--</div>--%>
+                <%--<div style="clear:both"></div>--%>
+            <%--</div>--%>
+            <%--<div class="rows">--%>
+                <%--<div class="col-xs-12 col-md-3">--%>
+                    <%--<img src="/img/book0.jpeg">--%>
+                <%--</div>--%>
+                <%--<div class="book_info col-xs-12 col-md-9">--%>
+                    <%--<p>《计算机操作系统》-----黄水松</p>--%>
+                    <%--<p>计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读</p>--%>
+                    <%--<p><span><i class="fa fa-user"></i>祝一迪</span>--%>
+                        <%--<span><i class="fa fa-book"></i>一本</span>--%>
+                        <%--<span><i class="fa fa-clock-o"></i>2017/12/5/21:04</span>--%>
+                    <%--</p>--%>
+                <%--</div>--%>
+                <%--<div style="clear:both"></div>--%>
+            <%--</div>--%>
+
+
+
+
                 <div id="index_pingination">
                     <ul class="pagination">
                         <li><a href="#">&laquo;</a></li>
@@ -161,7 +203,7 @@
             background: url(/img/close_def.png) no-repeat;cursor: pointer;
 
         }
-        .ui-dialog-closebutton:hover{background:url(/img/close_hov.png);}
+        .ui-dialog-closebutton:hover{background:url(/img/close_def.png);}
 
         .ui-dialog-content{
             padding: 15px 20px;

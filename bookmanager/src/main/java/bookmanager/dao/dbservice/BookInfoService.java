@@ -2,27 +2,19 @@ package bookmanager.dao.dbservice;
 
 import bookmanager.model.po.BookInfoPO;
 
-import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by dela on 11/23/17.
  */
 public interface BookInfoService {
-    //向书籍信息表中插入一条数据
-    void save(BookInfoPO bookInfo);
-
-    //通过书籍id进行查询
-    BookInfoPO getBookInfoByBookId(int bookId);
-
-    //通过关键字进行书名|作者|所属者模糊查询
-    List<BookInfoPO> getListBookInfoByNAO(String keywords);
-
-    //修改一本书籍的信息
-    void updateBookInfo(BookInfoPO bookInfo);
-
+    // 得到某一级分类下的所有书
     List<BookInfoPO> getBookInfoByBookLabelParentId(int bookParentId);
 
+    // 得到最新的10条图书记录
+    List<BookInfoPO> getTenBookInfo();
 
-    String test(int id);
+    // 得到最新的10条图书记录的uid
+    List<Integer> getTenBookInfoUid();
 }
