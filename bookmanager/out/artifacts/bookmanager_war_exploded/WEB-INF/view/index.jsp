@@ -1,15 +1,3 @@
-<%@ page import="bookmanager.model.po.BookLabelPO" %>
-<%@ page import="java.util.List" %>
-<%@ page import="bookmanager.dao.dbservice.BookLabelService" %>
-<%@ page import="bookmanager.dao.dbimpl.BookLabelServiceImpl" %>
-<%@ page import="org.springframework.jdbc.core.JdbcOperations" %>
-<%@ page import="bookmanager.config.database.DataConfig" %>
-<%@ page import="javax.sql.DataSource" %>
-<%@ page import="bookmanager.model.po.BookInfoPO" %>
-<%@ page import="bookmanager.dao.dbservice.BookInfoService" %>
-<%@ page import="bookmanager.dao.dbimpl.BookInfoServiceImpl" %>
-<%@ page import="bookmanager.dao.dbservice.UserService" %>
-<%@ page import="bookmanager.dao.dbimpl.UserServiceImpl" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -38,41 +26,25 @@
                     <button class="btn btn-link">提交</button>
                 </div>
                 <a id="index_sign" href="javascript:showDialog();">立即登录</a>
-            <%--<a id="index_sign">立即登录</a>--%>
+                <%--<a id="index_sign">立即登录</a>--%>
             </div>
         </header>
         <div id="main">
+            <div id="tag">
+                <c:forEach items="${labels}" var="label">
+                    <a href="/label/${label.pkId}">${label.name}</a>
+                </c:forEach>
+            </div>
 
-            <%--<div id="tag">--%>
-                <%--<a>编程语言</a>--%>
-                <%--<a>数据结构与算法</a>--%>
-                <%--<a>软件工程</a>--%>
-                <%--<a>数据库</a>--%>
-                <%--<a>操作系统</a>--%>
-                <%--<a>计算机网络</a>--%>
-                <%--<a>web后台</a>--%>
-                <%--<a>前端</a>--%>
-                <%--<a>人工智能</a>--%>
-                <%--<a>大数据与云计算</a>--%>
-                <%--<a>底层分析与开发工具</a>--%>
-                <%--<a>教科书</a>--%>
-                <%--<a id="tag_all">全部标签</a>--%>
-            <%--</div>--%>
-
-                <div id="tag">
-                    <c:forEach items="${labels}" var="label">
-                        <a href="/label/${label.pkId}">${label.name}</a>
-                    </c:forEach>
-                </div>
-
+            <div id="left">
                 <c:forEach items="${books}" var="book">
                     <div class="rows">
                         <div class="col-xs-12 col-md-3 book_img">
                             <img src="/img/book0.jpeg">
                         </div>
                         <div class="book_info col-xs-12 col-md-9">
-                            <p>《${book.key.name}》-----${book.key.author}</p>
-                            <p>${book.key.describe}</p>
+                            <p>《${book.key.ugkName}》----- ${book.key.author}</p>
+                            <p>${book.key.describ}</p>
                             <p><span><i class="fa fa-user"></i>${book.value}</span>
                                 <span><i class="fa fa-book"></i>${book.key.amount}本</span>
                                 <span><i class="fa fa-clock-o"></i>${book.key.uploadDate}</span>
@@ -82,50 +54,28 @@
                     </div>
                 </c:forEach>
 
-                <%----%>
-            <%--<div class="rows">--%>
-                <%--<div class="col-xs-12 col-md-3 book_img">--%>
-                    <%--<img src="/img/book0.jpeg">--%>
-                <%--</div>--%>
-                <%--<div class="book_info col-xs-12 col-md-9">--%>
-                    <%--<p>《计算机操作系统》-----黄水松</p>--%>
-                    <%--<p>计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读</p>--%>
-                    <%--<p><span><i class="fa fa-user"></i>祝一迪</span>--%>
-                        <%--<span><i class="fa fa-book"></i>一本</span>--%>
-                        <%--<span><i class="fa fa-clock-o"></i>2017/12/5/21:04</span>--%>
-                    <%--</p>--%>
-                <%--</div>--%>
-                <%--<div style="clear:both"></div>--%>
-            <%--</div>--%>
-            <%--<div class="rows">--%>
-                <%--<div class="col-xs-12 col-md-3">--%>
-                    <%--<img src="/img/book0.jpeg">--%>
-                <%--</div>--%>
-                <%--<div class="book_info col-xs-12 col-md-9">--%>
-                    <%--<p>《计算机操作系统》-----黄水松</p>--%>
-                    <%--<p>计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读</p>--%>
-                    <%--<p><span><i class="fa fa-user"></i>祝一迪</span>--%>
-                        <%--<span><i class="fa fa-book"></i>一本</span>--%>
-                        <%--<span><i class="fa fa-clock-o"></i>2017/12/5/21:04</span>--%>
-                    <%--</p>--%>
-                <%--</div>--%>
-                <%--<div style="clear:both"></div>--%>
-            <%--</div>--%>
-
-
-
 
                 <div id="index_pingination">
                     <ul class="pagination">
-                        <li><a href="#">&laquo;</a></li>
-                        <li class="pa_in"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li>
+                       
                     </ul>
                 </div>
+                
+                
+                <%--<div id="index_pingination">--%>
+                    <%--<ul class="pagination">--%>
+                        <%--<li><a href="#">&laquo;</a></li>--%>
+                        <%--<li class="pa_in"><a href="#">1</a></li>--%>
+                        <%--<li><a href="#">2</a></li>--%>
+                        <%--<li><a href="#">3</a></li>--%>
+                        <%--<li><a href="#">4</a></li>--%>
+                        <%--<li><a href="#">5</a></li>--%>
+                        <%--<li><a href="#">&raquo;</a></li>--%>
+                    <%--</ul>--%>
+                <%--</div>--%>
+                
+                
+                
             </div>
             <div style="clear:both"></div>
         </div>
@@ -169,7 +119,6 @@
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/js/canvas1.js"></script>
     </body>
-
 
     <style type="text/css">
 

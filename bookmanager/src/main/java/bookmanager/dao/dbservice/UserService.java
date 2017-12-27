@@ -18,7 +18,7 @@ public interface UserService {
     // 按用户的名字查询密码和uid(将密码和uid放进UserLoginVO对象中)
     UserLoginVO getPasswordAndUidByName(String name);
 
-    // 通过一组id得到一组User的名字
-    List<String> getUsernamesByIds(List ids);
+    // 通过id得到User的名字
+    String getUsernameById(int id);
 
 }

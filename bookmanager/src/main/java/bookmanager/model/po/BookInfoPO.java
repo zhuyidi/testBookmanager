@@ -12,7 +12,7 @@ import java.util.Date;
 
 //书籍信息表
 @Table(name = "book_info")
-public class BookInfoPO {
+public class BookInfoPO implements Comparable<BookInfoPO> {
     @Column(name = "pk_id")
     private int pkId;   //无意义主键
 
@@ -100,5 +100,9 @@ public class BookInfoPO {
 
     public void setDescrib(String describ) {
         this.describ = describ;
+    }
+
+    public int compareTo(BookInfoPO o) {
+        return this.getPkId() < o.getPkId() ? 1 : -1;
     }
 }

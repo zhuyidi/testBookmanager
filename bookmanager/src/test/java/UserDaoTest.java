@@ -26,11 +26,12 @@ public class UserDaoTest {
         JdbcOperations jdbcOperations = dataConfig.jdbcTemplate(dataSource);
         UserLoginVO user = null;
         UserPO userPO = null;
-//
-//        UserService userService = new UserServiceImpl(jdbcOperations);
+
+        UserService userService = new UserServiceImpl(jdbcOperations);
+//        System.out.println(userService.test("祝一迪"));
 //        user = userService.getPasswordAndUidByName("祝一迪");
 //        System.out.println(user.toString());
-//
+
 //        BookLabelService bookLabelService = new BookLabelServiceImpl(jdbcOperations);
 //        List<BookLabelPO> bookLabelPOS = bookLabelService.getBookLabelById(0);
 //        System.out.println(bookLabelPOS.toString());

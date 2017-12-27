@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
     private final static String GET_USER_BY_NAME = "SELECT * FROM cs_user WHERE name = ?";
     private final static String GET_USER_BY_ID = "SELECT * FROM cs_user WHERE uid = ?";
     private final static String GET_PASSWORD_AND_UID_BY_NAME = "SELECT uid, password FROM cs_user WHERE name = ?";
-    private final static String GET_USERNAMES_BY_UIDS = "SELECT name FROM cs_user IN ?";
+    private final static String GET_USERNAMES_BY_UIDS = "SELECT name FROM cs_user WHERE uid IN (?)";
 
 
     @Autowired
@@ -42,9 +42,8 @@ public class UserServiceImpl implements UserService {
                 JdbcRowMapper.newInstance(UserLoginVO.class), name);
     }
 
-    public List<String> getUsernamesByIds(List ids) {
-        return jdbcOperations.query(GET_USERNAMES_BY_UIDS, JdbcRowMapper.newInstance(String.class), ids);
+    public String getUsernameById(int id) {
+        return jdbcOperations.queryForObject(GET_USERNAMES_BY_UIDS, String.class, id);
     }
-
 
 }

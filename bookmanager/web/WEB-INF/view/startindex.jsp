@@ -26,7 +26,7 @@
                     <button class="btn btn-link">提交</button>
                 </div>
                 <a id="index_sign" href="javascript:showDialog();">立即登录</a>
-                <%--<a id="index_sign">立即登录</a>--%>
+            <%--<a id="index_sign">立即登录</a>--%>
             </div>
         </header>
         <div id="main">
@@ -36,14 +36,14 @@
                 </c:forEach>
             </div>
 
-            <div id="left">
+            <div class="left">
                 <c:forEach items="${books}" var="book">
                     <div class="rows">
                         <div class="col-xs-12 col-md-3 book_img">
                             <img src="/img/book0.jpeg">
                         </div>
                         <div class="book_info col-xs-12 col-md-9">
-                            <p>《${book.key.ugkName}》----- ${book.key.author}</p>
+                            <p>《${book.key.ugkName}》-----${book.key.author}</p>
                             <p>${book.key.describ}</p>
                             <p><span><i class="fa fa-user"></i>${book.value}</span>
                                 <span><i class="fa fa-book"></i>${book.key.amount}本</span>
@@ -54,28 +54,17 @@
                     </div>
                 </c:forEach>
 
-
                 <div id="index_pingination">
                     <ul class="pagination">
-                       
+                        <li><a href="#">&laquo;</a></li>
+                        <li class="pa_in"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&raquo;</a></li>
                     </ul>
                 </div>
-                
-                
-                <%--<div id="index_pingination">--%>
-                    <%--<ul class="pagination">--%>
-                        <%--<li><a href="#">&laquo;</a></li>--%>
-                        <%--<li class="pa_in"><a href="#">1</a></li>--%>
-                        <%--<li><a href="#">2</a></li>--%>
-                        <%--<li><a href="#">3</a></li>--%>
-                        <%--<li><a href="#">4</a></li>--%>
-                        <%--<li><a href="#">5</a></li>--%>
-                        <%--<li><a href="#">&raquo;</a></li>--%>
-                    <%--</ul>--%>
-                <%--</div>--%>
-                
-                
-                
             </div>
             <div style="clear:both"></div>
         </div>
@@ -119,6 +108,7 @@
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/js/canvas1.js"></script>
     </body>
+
 
     <style type="text/css">
 
