@@ -57,7 +57,12 @@
 
                 <div id="index_pingination">
                     <ul class="pagination">
-                       
+                        <%
+                            // if (如果当前是第一页)
+                            // 显示格式:
+                            // else (如果不是第一页)
+                            // 显示格式
+                        %>
                     </ul>
                 </div>
                 
