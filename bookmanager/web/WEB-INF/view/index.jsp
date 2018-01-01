@@ -58,6 +58,7 @@
                 <div id="index_pingination">
                     <ul class="pagination">
                         <%
+                            System.out.println("hello world! hello 2018");
                             // if (如果当前是第一页)
                             // 显示格式:
                             // else (如果不是第一页)

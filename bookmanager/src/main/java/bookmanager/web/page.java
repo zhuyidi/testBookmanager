@@ -5,4 +5,5 @@ package bookmanager.web;
  */
 
 public class page {
+
 }
