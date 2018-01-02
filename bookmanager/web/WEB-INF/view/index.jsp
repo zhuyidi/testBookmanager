@@ -57,13 +57,42 @@
 
                 <div id="index_pingination">
                     <ul class="pagination">
-                        <%
-                            System.out.println("hello world! hello 2018");
-                            // if (如果当前是第一页)
-                            // 显示格式:
-                            // else (如果不是第一页)
-                            // 显示格式
-                        %>
+                        <c:if test="${pageInfo.currentPage == 1}">
+                           <li class="pa_in"><a href="#">${pageInfo.currentPage}</a></li>
+                        </c:if>
+
+                        // 当当前页面不是第一页的时候, 要显示"首页"和"<<"按钮
+                        <c:if test="${pageInfo.currentPage != 1}">
+                            <li><a href="index.jsp?page=1">首页</a></li>
+                            <li><a href="index.jsp?page=${pageInfo.currentPage-1}">&laquo;</a></li>
+                        </c:if>
+
+                        // 当当前页面大于6页的时候, 要显示"[...]"按钮
+                        <c:if test="${pageInfo.currentPage > 6}">
+                            <li><a href="index.jsp?page=${(pageInfo.currentPage/5-1)*5-1}">[...]</a></li>
+                        </c:if>
+
+                        // 从当前这个五页起始页开始遍历
+                        <c:forEach var="i" begin="${(pageInfo.currentPage-1)/5*5+1}" end="${pageInfo.currentPage-1}">
+                            <li><a href="index.jsp?page=${i}">${i}</a></li>
+                        </c:forEach>
+                        // 遍历到当前页显示选中效果
+                        <li class="pa_in"><a href="#">${pageInfo.currentPage}</a></li>
+                        <c:forEach var="j" begin="${pageInfo.currentPage+1}" end="${(pageInfo.currentPage-1)/5*5+5}">
+                            <li><a href="index.jsp?page=${j}">${j}</a></li>
+                        </c:forEach>
+
+                        // 如果不是最后一个五页的页码, 要在后面显示[...]按钮
+                        <c:if test="${(pageInfo.currentPage-1)/5*5+1} != ${(pageInfo.totalPage-1)/5*5+1}">
+                            <li><a href="index.jsp?page=${(pageInfo.currentPage+4)/5*5+1}">[...]</a></li>
+                        </c:if>
+
+                        // 如果不是尾页, 要显示">>"和"尾页"按钮
+                        <c:if test="${pageInfo.currentPage} != ${pageInfo.totalPage}">
+                            <li><a href="index.jsp?page=${pageInfo.currentPage+1}">&raquo;</a></li>
+                            <li><a href="index.jsp?page=${pageInfo.totalPage}">尾页</a></li>
+                        </c:if>
+
                     </ul>
                 </div>
                 
@@ -71,7 +100,7 @@
                 <%--<div id="index_pingination">--%>
                     <%--<ul class="pagination">--%>
                         <%--<li><a href="#">&laquo;</a></li>--%>
-                        <%--<li class="pa_in"><a href="#">1</a></li>--%>
+                        <%--<li class="pa_in"><a href="#">${pageInfo.currentPage}</a></li>--%>
                         <%--<li><a href="#">2</a></li>--%>
                         <%--<li><a href="#">3</a></li>--%>
                         <%--<li><a href="#">4</a></li>--%>
@@ -79,7 +108,7 @@
                         <%--<li><a href="#">&raquo;</a></li>--%>
                     <%--</ul>--%>
                 <%--</div>--%>
-                
+                <%----%>
                 
                 
             </div>
