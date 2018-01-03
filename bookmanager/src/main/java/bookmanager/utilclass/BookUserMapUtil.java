@@ -1,9 +1,7 @@
 package bookmanager.utilclass;
 
-import bookmanager.dao.dbservice.BookInfoService;
 import bookmanager.dao.dbservice.UserService;
 import bookmanager.model.po.BookInfoPO;
-import bookmanager.model.po.PagePO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +13,10 @@ import java.util.TreeMap;
  */
 public class BookUserMapUtil {
 
-    public static Map<BookInfoPO, String> getOnePageBookInfo(PagePO page,
-         BookInfoService bookInfoService, UserService userService) {
-        List<BookInfoPO> bookInfoPOS = bookInfoService.getBookByPage(page);
-        List<Integer> uidList = bookInfoService.getBookInfoUidByPage(page);
+    public static Map<BookInfoPO, String> getOnePageBookInfo(List<BookInfoPO> bookInfoPOS, UserService userService) {
+//        List<BookInfoPO> bookInfoPOS = bookInfoService.getBookByPage(page);
+//        List<Integer> uidList = bookInfoService.getBookInfoUidByPage(page);
+
         List<String> userNames = new ArrayList<String>();
         Map<BookInfoPO, String> bookMap = new TreeMap<BookInfoPO, String>();
 

@@ -36,21 +36,22 @@ public class InitServlet {
 
     @RequestMapping(value = "/bookmanager", method = RequestMethod.GET)
     public String init(HttpServletRequest httpServletRequest, HttpSession httpSession) {
-        PagePO page = new PagePO(10, 1, 0, false, false);
+        PagePO page = new PagePO(5, 1, 0, false, false);
         int bookCount = bookInfoService.getBookCount();
         page.setTotalCount(bookCount);
-        page.setTotalPage(bookCount / 10);
+        page.setTotalPage((bookCount % 5 == 0) ? bookCount / 5 : bookCount / 5 + 1);
 
-        if (bookCount > 10) {
-            page.setHasNexPage(true);
-        }
+        System.out.println("init中:" + page.getTotalPage());
+
 
         List<BookLabelPO> bookLabelPOS = bookLabelService.getBookLabelById(0);
-        Map<BookInfoPO, String> bookMap = BookUserMapUtil.getOnePageBookInfo(page, bookInfoService, userService);
-
-
-//        List<BookInfoPO> bookInfoPOS = bookInfoService.getBookByPage(page);
+        List<BookInfoPO> bookInfoPOS = bookInfoService.getBookByPage(page);
 //        List<Integer> uidList = bookInfoService.getBookInfoUidByPage(page);
+
+        Map<BookInfoPO, String> bookMap = BookUserMapUtil.getOnePageBookInfo(bookInfoPOS, userService);
+
+
+
 //        List<String> userNames = new ArrayList<String>();
 //        Map<BookInfoPO, String> bookMap = new TreeMap<BookInfoPO, String>();
 //
@@ -62,7 +63,7 @@ public class InitServlet {
 //        for (int i = 0; i < bookInfoPOS.size(); i++) {
 //            bookMap.put(bookInfoPOS.get(i), userNames.get(i));
 //        }
-
+//
 //        httpServletRequest.setAttribute("labels", bookLabelPOS);
 
         httpSession.setAttribute("labels", bookLabelPOS);

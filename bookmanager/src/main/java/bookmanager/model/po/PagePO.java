@@ -13,7 +13,7 @@ public class PagePO {
     private boolean hasNexPage; // 是否有下一页
 
     static {
-        everyPage = 10;
+        everyPage = 5;
     }
 
     public PagePO() { }
