@@ -13,10 +13,7 @@ import java.util.TreeMap;
  */
 public class BookUserMapUtil {
 
-    public static Map<BookInfoPO, String> getOnePageBookInfo(List<BookInfoPO> bookInfoPOS, UserService userService) {
-//        List<BookInfoPO> bookInfoPOS = bookInfoService.getBookByPage(page);
-//        List<Integer> uidList = bookInfoService.getBookInfoUidByPage(page);
-
+    public static Map<BookInfoPO, String> getBookInfo(List<BookInfoPO> bookInfoPOS, UserService userService) {
         List<String> userNames = new ArrayList<String>();
         Map<BookInfoPO, String> bookMap = new TreeMap<BookInfoPO, String>();
 

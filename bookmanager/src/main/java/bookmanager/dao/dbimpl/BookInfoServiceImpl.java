@@ -20,16 +20,18 @@ public class BookInfoServiceImpl implements BookInfoService {
     private JdbcOperations jdbcOperations;
 
     private final static String GET_BOOKINFO_BY_BOOKLABEL_PARENT_ID =
-                    "SELECT * FROM book_info where pk_id IN (" +
-                            "SELECT book_info_pk_id FROM book_relation_label WHERE book_label_pk_id IN (" +
-                            "SELECT pk_id FROM book_label WHERE parent_id = ?))";
-
-//    private final static String GET_TEN_BOOKINFO = "SELECT * FROM book_info LIMIT 10";
-//    private final static String GET_TEN_BOOKINFO_UID = "SELECT ugk_uid FROM book_info LIMIT 10";
+            "SELECT * FROM book_info where pk_id IN (" +
+            "SELECT book_info_pk_id FROM book_relation_label WHERE book_label_pk_id IN (" +
+            "SELECT pk_id FROM book_label WHERE parent_id = ?))";
     private final static String GET_BOOK_COUNT = "SELECT COUNT(*) AS COUNT FROM book_info";
     private final static String GET_ONE_PAGE_BOOKINFO = "SELECT * FROM book_info LIMIT ? , ?";
     private final static String GET_ONE_PAGE_BOOKINFO_UID = "SELECT pk_id FROM book_info LIMIT ?, ?";
-
+    private final static String GET_BOOK_BY_LABEL_AND_PAGE = "SELECT * FROM book_info where pk_id IN (" +
+            "SELECT book_info_pk_id FROM book_relation_label WHERE book_label_pk_id IN (" +
+            "SELECT pk_id FROM book_label WHERE parent_id = ?)) LIMIT ?, ?";
+    private final static String GET_BOOK_COUNT_BY_LABEL = "SELECT COUNT(*) AS COUNT FROM book_info where pk_id IN (" +
+            "SELECT book_info_pk_id FROM book_relation_label WHERE book_label_pk_id IN (" +
+            "SELECT pk_id FROM book_label WHERE parent_id = ?))";
 
     @Autowired
     public BookInfoServiceImpl(JdbcOperations jdbcOperations) {
@@ -43,17 +45,6 @@ public class BookInfoServiceImpl implements BookInfoService {
                 JdbcRowMapper.newInstance(BookInfoPO.class), bookParentId);
     }
 
-//    // 得到最新的10条图书记录
-//    public List<BookInfoPO> getTenBookInfo() {
-//        return jdbcOperations.query(GET_TEN_BOOKINFO,
-//                JdbcRowMapper.newInstance(BookInfoPO.class));
-//    }
-//
-//
-//    public List<Integer> getTenBookInfoUid() {
-//        return jdbcOperations.queryForList(GET_TEN_BOOKINFO_UID, Integer.class);
-//    }
-
     public Integer getBookCount() {
         return jdbcOperations.queryForObject(GET_BOOK_COUNT, Integer.class);
     }
@@ -66,5 +57,15 @@ public class BookInfoServiceImpl implements BookInfoService {
     public List<Integer> getBookInfoUidByPage(PagePO pagePO) {
         return jdbcOperations.queryForList(GET_ONE_PAGE_BOOKINFO_UID,
                 Integer.class, pagePO.getBeginIndex(), pagePO.getEveryPage());
+    }
+
+    public List<BookInfoPO> getBookByLabelAndPage(PagePO pagePO, int labelid) {
+        System.out.println("everypage: " + pagePO.getEveryPage());
+        return jdbcOperations.query(GET_BOOK_BY_LABEL_AND_PAGE,
+                JdbcRowMapper.newInstance(BookInfoPO.class), labelid, pagePO.getBeginIndex(), pagePO.getEveryPage());
+    }
+
+    public Integer getBookCountByLabel(int labelId) {
+        return jdbcOperations.queryForObject(GET_BOOK_COUNT_BY_LABEL, Integer.class, labelId);
     }
 }

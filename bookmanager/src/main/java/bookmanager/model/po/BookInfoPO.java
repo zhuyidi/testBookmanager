@@ -105,4 +105,17 @@ public class BookInfoPO implements Comparable<BookInfoPO> {
     public int compareTo(BookInfoPO o) {
         return this.getPkId() < o.getPkId() ? 1 : -1;
     }
+
+    @Override
+    public String toString() {
+        return "BookInfoPO{" +
+                "pkId=" + pkId +
+                ", ugkName='" + ugkName + '\'' +
+                ", author='" + author + '\'' +
+                ", ugkUid=" + ugkUid +
+                ", amount=" + amount +
+                ", uploadDate='" + uploadDate + '\'' +
+                ", describ='" + describ + '\'' +
+                '}';
+    }
 }

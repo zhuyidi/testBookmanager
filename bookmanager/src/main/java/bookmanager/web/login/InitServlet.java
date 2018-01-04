@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.*;
@@ -46,29 +47,12 @@ public class InitServlet {
 
         List<BookLabelPO> bookLabelPOS = bookLabelService.getBookLabelById(0);
         List<BookInfoPO> bookInfoPOS = bookInfoService.getBookByPage(page);
-//        List<Integer> uidList = bookInfoService.getBookInfoUidByPage(page);
 
-        Map<BookInfoPO, String> bookMap = BookUserMapUtil.getOnePageBookInfo(bookInfoPOS, userService);
-
-
-
-//        List<String> userNames = new ArrayList<String>();
-//        Map<BookInfoPO, String> bookMap = new TreeMap<BookInfoPO, String>();
-//
-//
-//        for (BookInfoPO bookInfoPO : bookInfoPOS) {
-//            userNames.add(userService.getUsernameById(bookInfoPO.getUgkUid()));
-//        }
-//
-//        for (int i = 0; i < bookInfoPOS.size(); i++) {
-//            bookMap.put(bookInfoPOS.get(i), userNames.get(i));
-//        }
-//
-//        httpServletRequest.setAttribute("labels", bookLabelPOS);
+        Map<BookInfoPO, String> bookMap = BookUserMapUtil.getBookInfo(bookInfoPOS, userService);
 
         httpSession.setAttribute("labels", bookLabelPOS);
-        httpServletRequest.setAttribute("books", bookMap);
-        httpServletRequest.setAttribute("pageInfo", page);
+        httpSession.setAttribute("books", bookMap);
+        httpSession.setAttribute("pageInfo", page);
 
         return "index";
     }

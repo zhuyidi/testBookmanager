@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -31,66 +32,151 @@
             </div>
         </header>
         <div id="main">
+
             <div id="tag">
-                <a>编程语言</a>
-                <a>数据结构与算法</a>
-                <a>软件工程</a>
-                <a>数据库</a>
-                <a>操作系统</a>
-                <a>计算机网络</a>
-                <a>web后台</a>
-                <a>前端</a>
-                <a>人工智能</a>
-                <a>大数据与云计算</a>
-                <a>底层分析与开发工具</a>
-                <a>教科书</a>
-                <a id="tag_all" href="alltags.html">全部标签</a>
+                <c:forEach items="${labels}" var="label">
+                    <a href="/label/${label.pkId}">${label.name}</a>
+                </c:forEach>
             </div>
+
+
+
+
+            <%--<div id="tag">--%>
+                <%--<a>编程语言</a>--%>
+                <%--<a>数据结构与算法</a>--%>
+                <%--<a>软件工程</a>--%>
+                <%--<a>数据库</a>--%>
+                <%--<a>操作系统</a>--%>
+                <%--<a>计算机网络</a>--%>
+                <%--<a>web后台</a>--%>
+                <%--<a>前端</a>--%>
+                <%--<a>人工智能</a>--%>
+                <%--<a>大数据与云计算</a>--%>
+                <%--<a>底层分析与开发工具</a>--%>
+                <%--<a>教科书</a>--%>
+                <%--<a id="tag_all" href="alltags.html">全部标签</a>--%>
+            <%--</div>--%>
+
+
+
+
+
             <div class="rows">
                 <div id="left1" class="col-xs-12 col-md-9">
-                    <div class="rows">
-                        <div class="col-xs-12 col-md-3 book_img">
-                            <img src="/img/book0.jpeg">
+                    <c:forEach items="${books}" var="book">
+                        <div class="rows">
+                            <div class="col-xs-12 col-md-3 book_img">
+                                <img src="/img/book0.jpeg">
+                            </div>
+                            <div class="book_info col-xs-12 col-md-9">
+                                <p>《${book.key.ugkName}》----- ${book.key.author}</p>
+                                <p>${book.key.describ}</p>
+                                <p><span><i class="fa fa-user"></i>${book.value}</span>
+                                    <span><i class="fa fa-book"></i>${book.key.amount}本</span>
+                                    <span><i class="fa  fa-clock-o"></i>${book.key.uploadDate}</span>
+                                </p>
+                            </div>
+                            <div style="clear:both"></div>
                         </div>
-                        <div class="book_info col-xs-12 col-md-9">
-                            <p>《计算机操作系统》-----黄水松</p>
-                            <p>计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读</p>
-                            <p><span><i class="fa fa-user"></i>祝一迪</span>
-                                <span><i class="fa fa-book"></i>一本</span>
-                                <span><i class="fa fa-clock-o"></i>2017/12/5/21:04</span>
-                            </p>
-                        </div>
-                        <div class="col-xs-12 col-md-2">
-                            <button class="btn" href="showbook.html">点我借阅</button>
-                        </div>
-                        <div style="clear:both"></div>
-                    </div>
-                    <div class="rows">
-                        <div class="col-xs-12 col-md-3 book_img">
-                            <img src="${pageContext.request.contextPath}/img/book0.jpeg">
-                        </div>
-                        <div class="book_info col-xs-12 col-md-9">
-                            <p>《计算机操作系统》-----黄水松</p>
-                            <p>计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读</p>
-                            <p><span><i class="fa fa-user"></i>祝一迪</span>
-                                <span><i class="fa fa-book"></i>一本</span>
-                                <span><i class="fa fa-clock-o"></i>2017/12/5/21:04</span>
-                            </p>
-                        </div>
-                        <div style="clear:both"></div>
-                    </div>
+                    </c:forEach>
+
+
+                    <%--<div class="rows">--%>
+                        <%--<div class="col-xs-12 col-md-3 book_img">--%>
+                            <%--<img src="/img/book0.jpeg">--%>
+                        <%--</div>--%>
+                        <%--<div class="book_info col-xs-12 col-md-9">--%>
+                            <%--<p>《计算机操作系统》-----黄水松</p>--%>
+                            <%--<p>计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读</p>--%>
+                            <%--<p><span><i class="fa fa-user"></i>祝一迪</span>--%>
+                                <%--<span><i class="fa fa-book"></i>一本</span>--%>
+                                <%--<span><i class="fa fa-clock-o"></i>2017/12/5/21:04</span>--%>
+                            <%--</p>--%>
+                        <%--</div>--%>
+                        <%--<div class="col-xs-12 col-md-2">--%>
+                            <%--<button class="btn" href="showbook.html">点我借阅</button>--%>
+                        <%--</div>--%>
+                        <%--<div style="clear:both"></div>--%>
+                    <%--</div>--%>
+                    <%--<div class="rows">--%>
+                        <%--<div class="col-xs-12 col-md-3 book_img">--%>
+                            <%--<img src="${pageContext.request.contextPath}/img/book0.jpeg">--%>
+                        <%--</div>--%>
+                        <%--<div class="book_info col-xs-12 col-md-9">--%>
+                            <%--<p>《计算机操作系统》-----黄水松</p>--%>
+                            <%--<p>计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读</p>--%>
+                            <%--<p><span><i class="fa fa-user"></i>祝一迪</span>--%>
+                                <%--<span><i class="fa fa-book"></i>一本</span>--%>
+                                <%--<span><i class="fa fa-clock-o"></i>2017/12/5/21:04</span>--%>
+                            <%--</p>--%>
+                        <%--</div>--%>
+                        <%--<div style="clear:both"></div>--%>
+                    <%--</div>--%>
+
+
                     <div id="index_pingination">
                         <ul class="pagination">
-                            <li><a href="#">&laquo;</a></li>
-                            <li class="pa_in"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">&raquo;</a></li>
+
+                            <%--// 当当前页面不是第一页的时候, 要显示"首页"和"<<"按钮--%>
+                            <c:if test="${pageInfo.currentPage != 1 && pageInfo.totalPage != 0}">
+                                <li><a href="/bookmanager/1">首页</a></li>
+                                <li><a href="/bookmanager/${pageInfo.currentPage-1}">&laquo;</a></li>
+                            </c:if>
+
+                            <%--// 当当前页面大于6页的时候, 要显示"[...]"按钮--%>
+                            <c:if test="${pageInfo.currentPage > 6}">
+                                <li><a href="/bookmanager/${(pageInfo.currentPage/5-1)*5-1}">[...]</a></li>
+                            </c:if>
+
+                            <%--// 从当前这个五页起始页开始遍历--%>
+                            <c:forEach varStatus="i" begin="${(pageInfo.currentPage-1)/5*5+1}" end="${(pageInfo.currentPage-1)/5*5+5}">
+
+                                <c:if test="${i.count <= pageInfo.totalPage}">
+                                    <c:if test="${i.count == pageInfo.currentPage}">
+                                        <li class="pa_in"><a href="#">${pageInfo.currentPage}</a></li>
+                                    </c:if>
+                                    <c:if test="${i.count != pageInfo.currentPage}">
+                                        <li><a href="/bookmanager/${i.count}">${i.count}</a></li>
+                                    </c:if>
+                                </c:if>
+
+                            </c:forEach>
+
+                            <%--// 如果不是最后一个五页的页码, 要在后面显示[...]按钮--%>
+                            <c:if test="${((pageInfo.currentPage-1)/5*5+1 != (pageInfo.totalPage-1)/5*5+1) && pageInfo.totalPage > 6}">
+                                <li><a href="/bookmanager/${(pageInfo.currentPage+4)/5*5+1}">[...]</a></li>
+                            </c:if>
+
+                            <%--// 如果不是尾页, 要显示">>"和"尾页"按钮--%>
+                            <c:if test="${pageInfo.currentPage != pageInfo.totalPage && pageInfo.totalPage != 1 && pageInfo.totalPage != 0}">
+                                <li><a href="/bookmanager/${pageInfo.currentPage+1}">&raquo;</a></li>
+                                <li><a href="/bookmanager/${pageInfo.totalPage}">尾页</a></li>
+                            </c:if>
+
                         </ul>
                     </div>
+
+
+                    <%--<div id="index_pingination">--%>
+                        <%--<ul class="pagination">--%>
+                            <%--<li><a href="#">&laquo;</a></li>--%>
+                            <%--<li class="pa_in"><a href="#">1</a></li>--%>
+                            <%--<li><a href="#">2</a></li>--%>
+                            <%--<li><a href="#">3</a></li>--%>
+                            <%--<li><a href="#">4</a></li>--%>
+                            <%--<li><a href="#">5</a></li>--%>
+                            <%--<li><a href="#">&raquo;</a></li>--%>
+                        <%--</ul>--%>
+                    <%--</div>--%>
+
+
+
                 </div>
+
+
+
+
                 <div id="right1" class="col-xs-12 col-md-3">
                     <p class="index1_info">借阅与归还信息</p>
                     <hr>
@@ -116,6 +202,8 @@
                 </div>
 
                 <div style="clear:both"></div>
+
+            // row
             </div>
             <div style="clear:both"></div>
         </div>
