@@ -22,8 +22,11 @@
                 <img id="index_head" src="/img/index_head.png" />
                 <a id="head" href="index.jsp">XiyouLinux Group 图书借阅</a>
                 <div id="index_input">
-                    <input type="text" placeholder="搜索书名/作者/归属者">
-                    <button class="btn btn-link">提交</button>
+                    <form action="/search" method="post">
+                        <input type="text" nam="keyword" placeholder="搜索书名/作者/归属者">
+                        <input type="submit" value="搜索">
+                        <%--<button class="btn btn-link">搜索</button>--%>
+                    </form>
                 </div>
                 <a id="index_sign" href="javascript:showDialog();">立即登录</a>
                 <%--<a id="index_sign">立即登录</a>--%>
