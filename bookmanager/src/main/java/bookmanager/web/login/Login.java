@@ -40,7 +40,6 @@ public class Login {
     @RequestMapping(method = RequestMethod.POST)
     public String userLogin(@Valid UserLoginVO user, HttpSession session, HttpServletRequest httpServletRequest) throws UnsupportedEncodingException {
         String username = new String(user.getName().getBytes("iso-8859-1"), "utf-8");
-//        System.out.println("username:" + username);
 
         if (!username.equals("")) {
             // 登录成功, 跳转到main.jsp页面

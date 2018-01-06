@@ -1,11 +1,9 @@
 package bookmanager.web.page;
 
 import bookmanager.dao.dbservice.BookInfoService;
-import bookmanager.dao.dbservice.BookLabelService;
 import bookmanager.dao.dbservice.UserService;
 import bookmanager.model.po.BookInfoPO;
 import bookmanager.model.po.PagePO;
-import bookmanager.model.po.UserPO;
 import bookmanager.utilclass.BookUserMapUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,40 +38,22 @@ public class Page {
     public String getPageInfo(@PathVariable int page, Model model,
                               HttpServletRequest httpServletRequest) {
 
-
-
-//        System.out.println("pageController中");
-//        System.out.println("pageCurrent:" + pagePO.getCurrentPage());
-//        System.out.println("totalPage" + pagePO.getTotalPage());
-
-
         List<BookInfoPO> bookInfoPOS = null;
         PagePO pagePO = new PagePO(page);
 
-//        if (httpServletRequest.getSession().getAttribute("labelid") != null) {
+        // 分页功能按有分类和没有分类两种情况处理
         if (httpServletRequest.getParameter("id") != null && (!httpServletRequest.getParameter("id").equals(""))) {
             // 取到labelID
             Integer labelID = Integer.valueOf(httpServletRequest.getParameter("id"));
-//            Integer idIndex = Integer.valueOf(httpServletRequest.getParameter("id"));
-//            System.out.println("parameter:" + httpServletRequest.getParameter("id"));
-//            pagePO.setBeginIndex(idIndex);
 
-//            System.out.println("page beginindex :" + pagePO.getBeginIndex());
-//            System.out.println("page everypage: " + pagePO.getEveryPage());
-//            System.out.println("labelid : " + labelID);
-
-            // 将取到的labelid再重新设置为属性
+            // 将取到的labelid再重新设置为请求范围的属性
             model.addAttribute("labelid", labelID);
 
-            // 按照labelID查找一页的数据
+            // 按照labelID查找一页的数据, 并查询到该分类下的书籍信息总记录数, 并设置给pagePO的totalPage
             bookInfoPOS = bookInfoService.getBookByLabelAndPage(pagePO, labelID);
-
             int bookCount = bookInfoService.getBookCountByLabel(labelID);
-            System.out.println("label count:" + bookCount);
-
             pagePO.setTotalPage((bookCount  % 5 == 0) ? bookCount / 5 : bookCount / 5 + 1);
 
-//            httpServletRequest.setAttribute("nextindex", bookInfoPOS.get(bookInfoPOS.size()-1).getPkId());
         } else {
             int bookCount = bookInfoService.getBookCount();
             pagePO.setTotalPage((bookCount  % 5 == 0) ? bookCount / 5 : bookCount / 5 + 1);
@@ -86,6 +66,9 @@ public class Page {
         httpServletRequest.setAttribute("books", bookInfoPOStringMap);
         httpServletRequest.setAttribute("pageInfo", pagePO);
 
+        if(httpServletRequest.getSession().getAttribute("uid") != null) {
+            return "main";
+        }
         return "index";
     }
 }

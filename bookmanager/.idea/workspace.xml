@@ -6,7 +6,6 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/java/bookmanager/dao/rowmapper/JdbcRowMapper.java" line="235" />
     <bookmark url="file://$PROJECT_DIR$/src/main/java/bookmanager/dao/dbimpl/BookLabelServiceImpl.java" line="29" />
     <bookmark url="file://$PROJECT_DIR$/src/main/java/bookmanager/model/po/BookCommentPO.java" line="30" />
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/bookmanager/web/main/GetLabelBook.java" line="44" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af9d22f4-4316-495a-abb0-a0fa67c96c73" name="Default" comment="" />
@@ -70,55 +69,14 @@
       </PATH_ELEMENT>
     </PATH>
   </component>
-  <component name="DockManager">
-    <window id="7">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="index.jsp" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/web/WEB-INF/view/index.jsp">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="794">
-                    <caret line="96" column="25" lean-forward="true" selection-start-line="96" selection-start-column="25" selection-end-line="96" selection-end-column="25" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="BookInfoServiceImpl.java" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/main/java/bookmanager/dao/dbimpl/BookInfoServiceImpl.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="0">
-                    <caret line="30" column="74" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="74" />
-                    <folding>
-                      <marker date="1515031943335" expanded="true" signature="662:861" ph="SELECT * FRO... book_info" />
-                      <marker date="1515031943335" expanded="true" signature="719:860" ph="SELECT book_... book_relation_label" />
-                      <marker date="1515031943335" expanded="true" signature="811:859" ph="SELECT pk_id... book_label" />
-                      <marker date="1515031943335" expanded="true" signature="914:953" ph="SELECT COUNT... " />
-                      <marker date="1515031943335" expanded="true" signature="1013:1048" ph="SELECT * FRO... book_info" />
-                      <marker date="1515031943335" expanded="true" signature="1112:1150" ph="SELECT uid F... book_info" />
-                      <marker date="1515031943335" expanded="true" signature="1215:1425" ph="SELECT * FRO... book_info" />
-                      <marker date="1515031943335" expanded="true" signature="1272:1413" ph="SELECT book_... book_relation_label" />
-                      <marker date="1515031943335" expanded="true" signature="1364:1412" ph="SELECT pk_id... book_label" />
-                      <marker date="1515031943335" expanded="true" signature="1487:1702" ph="SELECT COUNT... " />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Page.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Page.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bookmanager/web/page/Page.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-680">
-              <caret line="53" column="113" lean-forward="false" selection-start-line="53" selection-start-column="113" selection-end-line="53" selection-end-column="113" />
+            <state relative-caret-position="816">
+              <caret line="70" column="9" lean-forward="false" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -126,13 +84,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GetLabelBook.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GetLabelBook.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/bookmanager/web/main/GetLabelBook.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="53" column="42" lean-forward="false" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
+            <state relative-caret-position="818">
+              <caret line="60" column="26" lean-forward="false" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/view/main.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3833">
+              <caret line="22" column="43" lean-forward="false" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
+              <folding>
+                <marker date="1515223973093" expanded="false" signature="4320:4330" ph="..." />
+                <marker date="1515223973093" expanded="false" signature="5247:5257" ph="..." />
+                <marker date="1515223973093" expanded="false" signature="7882:7889" ph="«" />
+                <marker date="1515223973093" expanded="false" signature="8280:8287" ph="»" />
               </folding>
             </state>
           </provider>
@@ -192,7 +165,6 @@
         <option value="$PROJECT_DIR$/web/WEB-INF/view/startindex.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/bookmanager/dao/dbimpl/PageServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/bookmanager/web/page.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bookmanager/web/login/Login.java" />
         <option value="$PROJECT_DIR$/src/main/java/bookmanager/dao/dbservice/BookLabelService.java" />
         <option value="$PROJECT_DIR$/src/main/java/bookmanager/dao/dbimpl/BookLabelServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/bookmanager/utilclass/BookUserMap.java" />
@@ -200,16 +172,17 @@
         <option value="$PROJECT_DIR$/src/main/java/bookmanager/model/po/PagePO.java" />
         <option value="$PROJECT_DIR$/src/main/java/bookmanager/filter/LoginFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/bookmanager/model/po/BookInfoPO.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/view/main.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/bookmanager/web/page/BasePageController.java" />
         <option value="$PROJECT_DIR$/src/main/java/bookmanager/web/login/InitServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/bookmanager/dao/dbimpl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/bookmanager/utilclass/BookUserMapUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/bookmanager/dao/dbimpl/BookInfoServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/bookmanager/dao/dbservice/BookInfoService.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/view/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/bookmanager/web/main/GetLabelBook.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bookmanager/web/login/Login.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bookmanager/web/page/BasePageController.java" />
         <option value="$PROJECT_DIR$/src/main/java/bookmanager/web/page/Page.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bookmanager/web/main/GetLabelBook.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/view/main.jsp" />
       </list>
     </option>
   </component>
@@ -317,24 +290,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bookmanager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bookmanager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1479,12 +1434,12 @@
       <workItem from="1514211196210" duration="3593000" />
       <workItem from="1514290451495" duration="9020000" />
       <workItem from="1514299969391" duration="11415000" />
-      <workItem from="1514735029186" duration="51980000" />
+      <workItem from="1514735029186" duration="55796000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186932000" />
+    <option name="totallyTimeSpent" value="190748000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1439" y="28" width="1368" height="707" extended-state="6" />
@@ -1504,16 +1459,16 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40273038" sideWeight="0.49121523" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4215017" sideWeight="0.49121523" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07167236" sideWeight="0.88433385" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15187714" sideWeight="0.88433385" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12737921" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26061493" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1651,14 +1606,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/UserDaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="31" column="40" lean-forward="false" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bookmanager/dao/dbservice/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
@@ -1787,35 +1734,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/view/main.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1820">
-          <caret line="121" column="90" lean-forward="false" selection-start-line="121" selection-start-column="90" selection-end-line="121" selection-end-column="90" />
-          <folding>
-            <marker date="1514979524994" expanded="false" signature="4319:4329" ph="..." />
-            <marker date="1514979524994" expanded="false" signature="5246:5256" ph="..." />
-            <marker date="1514979524994" expanded="false" signature="7881:7888" ph="«" />
-            <marker date="1514979524994" expanded="false" signature="8279:8286" ph="»" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bookmanager/web/login/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-208">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bookmanager/filter/LoginFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-754">
-          <caret line="26" column="30" lean-forward="true" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bookmanager/dao/dbimpl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="505">
@@ -1828,14 +1746,6 @@
             <marker date="1514985506444" expanded="true" signature="903:943" ph="SELECT name cs_user" />
             <marker date="1514985506444" expanded="true" signature="903:944" ph="SELECT name cs_user" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bookmanager/web/page/BasePageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1862,16 +1772,6 @@
         <state relative-caret-position="147">
           <caret line="24" column="18" lean-forward="true" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bookmanager/web/login/InitServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1909,6 +1809,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bookmanager/web/login/InitServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bookmanager/web/login/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bookmanager/dao/dbimpl/BookInfoServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1928,28 +1846,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bookmanager/web/main/GetLabelBook.java">
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/view/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="53" column="42" lean-forward="false" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="170">
+          <caret line="72" column="24" lean-forward="false" selection-start-line="72" selection-start-column="24" selection-end-line="72" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/view/index.jsp">
+    <entry file="file://$PROJECT_DIR$/src/test/java/UserDaoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="794">
-          <caret line="96" column="25" lean-forward="true" selection-start-line="96" selection-start-column="25" selection-end-line="96" selection-end-column="25" />
+        <state relative-caret-position="390">
+          <caret line="31" column="40" lean-forward="false" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bookmanager/web/page/BasePageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-562">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bookmanager/filter/LoginFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="26" column="30" lean-forward="true" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bookmanager/web/page/Page.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-680">
-          <caret line="53" column="113" lean-forward="false" selection-start-line="53" selection-start-column="113" selection-end-line="53" selection-end-column="113" />
+        <state relative-caret-position="816">
+          <caret line="70" column="9" lean-forward="false" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/view/main.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3833">
+          <caret line="22" column="43" lean-forward="false" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
+          <folding>
+            <marker date="1515223973093" expanded="false" signature="4320:4330" ph="..." />
+            <marker date="1515223973093" expanded="false" signature="5247:5257" ph="..." />
+            <marker date="1515223973093" expanded="false" signature="7882:7889" ph="«" />
+            <marker date="1515223973093" expanded="false" signature="8280:8287" ph="»" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bookmanager/web/main/GetLabelBook.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="818">
+          <caret line="60" column="26" lean-forward="false" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

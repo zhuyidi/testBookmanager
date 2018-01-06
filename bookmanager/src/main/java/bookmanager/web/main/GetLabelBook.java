@@ -37,14 +37,18 @@ public class GetLabelBook {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String getBookByLabelId(@PathVariable int id, Model model,
             HttpServletRequest httpServletRequest, HttpSession httpSession) {
+        // 构造pagePO对象来保存页信息
         PagePO page = new PagePO(1);
         List<BookInfoPO> bookInfoPOS = bookInfoService.getBookByLabelAndPage(page, id);
         int bookCount = bookInfoService.getBookCountByLabel(id);
         page.setTotalPage((bookCount % 5 == 0) ? bookCount / 5 : bookCount / 5 + 1);
 
-//        httpServletRequest.setAttribute("nextindex", bookInfoPOS.get(4).getPkId());
 
+        boolean loginMark = httpServletRequest.getSession().getAttribute("uid") != null;
         if (bookInfoPOS == null) {
+            if (loginMark) {
+               return "main";
+            }
             return "index";
         }
 
@@ -52,8 +56,10 @@ public class GetLabelBook {
         model.addAttribute("books", bookInfoPOStringMap);
         model.addAttribute("pageInfo", page);
         model.addAttribute("labelid", id);
-//        httpSession.setAttribute("labelid", id);
 
+        if (loginMark) {
+            return "main";
+        }
         return "index";
     }
 
