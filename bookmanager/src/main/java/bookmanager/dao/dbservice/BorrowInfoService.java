@@ -1,6 +1,9 @@
 package bookmanager.dao.dbservice;
 
 import bookmanager.model.po.BorrowInfoPO;
+import bookmanager.model.po.PagePO;
+
+import java.util.List;
 
 /**
  * Created by dela on 11/23/17.
@@ -11,4 +14,8 @@ public interface BorrowInfoService {
 
     // 查询有多少条借阅记录
     Integer getBorrowInfoCount();
+
+    // 得到一页(10条)的借阅表里的时间
+    List<String> getBorrowDateByPage(PagePO pagePO);
+
 }

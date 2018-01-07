@@ -9,7 +9,6 @@ import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by dela on 11/23/17.
@@ -22,16 +21,20 @@ public class BookInfoServiceImpl implements BookInfoService {
     private final static String GET_BOOKINFO_BY_BOOKLABEL_PARENT_ID =
             "SELECT * FROM book_info where pk_id IN (" +
             "SELECT book_info_pk_id FROM book_relation_label WHERE book_label_pk_id IN (" +
-            "SELECT pk_id FROM book_label WHERE parent_id = ?))";
-    private final static String GET_BOOK_COUNT = "SELECT COUNT(*) AS COUNT FROM book_info";
-    private final static String GET_ONE_PAGE_BOOKINFO = "SELECT * FROM book_info LIMIT ? , ?";
-    private final static String GET_ONE_PAGE_BOOKINFO_UID = "SELECT pk_id FROM book_info LIMIT ?, ?";
+            "SELECT pk_id FROM book_label WHERE parent_id = ?)) AND amount > 0";
+    private final static String GET_BOOK_COUNT = "SELECT COUNT(*) AS COUNT FROM book_info WHERE amount > 0";
+    private final static String GET_ONE_PAGE_BOOKINFO = "SELECT * FROM book_info WHERE amount >0 LIMIT ? , ?";
+    private final static String GET_ONE_PAGE_BOOKINFO_UID = "SELECT pk_id FROM book_info where amount > 0 LIMIT ?, ?";
     private final static String GET_BOOK_BY_LABEL_AND_PAGE = "SELECT * FROM book_info where pk_id IN (" +
             "SELECT book_info_pk_id FROM book_relation_label WHERE book_label_pk_id IN (" +
-            "SELECT pk_id FROM book_label WHERE parent_id = ?)) LIMIT ?, ?";
+            "SELECT pk_id FROM book_label WHERE parent_id = ?)) AND amount > 0 LIMIT ?, ?";
     private final static String GET_BOOK_COUNT_BY_LABEL = "SELECT COUNT(*) AS COUNT FROM book_info where pk_id IN (" +
             "SELECT book_info_pk_id FROM book_relation_label WHERE book_label_pk_id IN (" +
-            "SELECT pk_id FROM book_label WHERE parent_id = ?))";
+            "SELECT pk_id FROM book_label WHERE parent_id = ?)) AND amount > 0";
+    private final static String GET_BOOKNAME_BY_BORROWINFO_PAGE =
+            "SELECT ugk_name FROM book_info WHERE pk_id in(SELECT book_info_pk_id FROM(" +
+                    "SELECT book_info_pk_id FROM borrow_info limit ?, ?) AS temp)";
+
 
     @Autowired
     public BookInfoServiceImpl(JdbcOperations jdbcOperations) {
@@ -68,4 +71,11 @@ public class BookInfoServiceImpl implements BookInfoService {
     public Integer getBookCountByLabel(int labelId) {
         return jdbcOperations.queryForObject(GET_BOOK_COUNT_BY_LABEL, Integer.class, labelId);
     }
+
+
+    public List<String> getBookNameByBorrowInfoPage(PagePO pagePO) {
+        return jdbcOperations.queryForList(GET_BOOKNAME_BY_BORROWINFO_PAGE,
+                String.class, pagePO.getBeginIndex(), pagePO.getEveryPage());
+    }
+
 }

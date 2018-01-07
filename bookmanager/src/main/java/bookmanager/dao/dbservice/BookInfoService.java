@@ -4,7 +4,6 @@ import bookmanager.model.po.BookInfoPO;
 import bookmanager.model.po.PagePO;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by dela on 11/23/17.
@@ -27,4 +26,7 @@ public interface BookInfoService {
 
     // 得到某一分类下的图书的总本数
     Integer getBookCountByLabel(int labelId);
+
+    // 得到借阅表里一页的借阅信息里的书名
+    List<String> getBookNameByBorrowInfoPage(PagePO pagePO);
 }

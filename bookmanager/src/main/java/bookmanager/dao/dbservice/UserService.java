@@ -1,5 +1,6 @@
 package bookmanager.dao.dbservice;
 
+import bookmanager.model.po.PagePO;
 import bookmanager.model.po.UserPO;
 import bookmanager.model.vo.login.UserLoginVO;
 
@@ -21,4 +22,10 @@ public interface UserService {
     // 通过id得到User的名字
     String getUsernameById(int id);
 
+    // 得到借阅信息表的一页信息里面的借阅者
+    List<String> getUserNameByBorrowInfoPage(PagePO pagePO);
+
+
+    // 得到借阅信息表的一页信息的所属者
+    List<String> getOwnerNameByBorrowInfoPage(PagePO pagePO);
 }
