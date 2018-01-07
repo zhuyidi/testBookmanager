@@ -177,6 +177,8 @@
 
 
 
+
+
                 <div id="right1" class="col-xs-12 col-md-3">
                     <p class="index1_info">借阅与归还信息</p>
                     <hr>
@@ -190,16 +192,74 @@
                     <p class="index1_con">祝一迪从祝一迪处借阅《计算机操作系统》</p>
                     <div id="index_pingination">
                         <ul class="pagination">
-                            <li><a href="#">&laquo;</a></li>
-                            <li class="pa_in"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">&raquo;</a></li>
+                            <%--// 当当前页面不是第一页的时候, 要显示"首页"和"<<"按钮--%>
+                            <c:if test="${pageInfo.currentPage != 1 && pageInfo.totalPage != 0}">
+                                <li><a onclick="load(1)" >首页</a></li>
+                                <li><a onclick="load(${pageInfo.currentPage-1})">&laquo;</a></li>
+                            </c:if>
+
+                            <%--// 当当前页面大于6页的时候, 要显示"[...]"按钮--%>
+                            <c:if test="${pageInfo.currentPage > 6}">
+                                <li><a onclick="load(${(pageInfo.currentPage/5-1)*5-1})">[...]</a></li>
+                            </c:if>
+
+                            <%--// 从当前这个五页起始页开始遍历--%>
+                            <c:forEach varStatus="i" begin="${(pageInfo.currentPage-1)/5*5+1}" end="${(pageInfo.currentPage-1)/5*5+5}">
+
+                                <c:if test="${i.count <= pageInfo.totalPage}">
+                                    <c:if test="${i.count == pageInfo.currentPage}">
+                                        <li class="pa_in"><a href="#">${pageInfo.currentPage}</a></li>
+                                    </c:if>
+                                    <c:if test="${i.count != pageInfo.currentPage}">
+                                        <li><a onclick="load(${i.count})">${i.count}</a></li>
+                                    </c:if>
+                                </c:if>
+
+                            </c:forEach>
+
+                            <%--// 如果不是最后一个五页的页码, 要在后面显示[...]按钮--%>
+                            <c:if test="${((pageInfo.currentPage-1)/5*5+1 != (pageInfo.totalPage-1)/5*5+1) && pageInfo.totalPage > 6}">
+                                <li><a onclick="load(${(pageInfo.currentPage+4)/5*5+1})">[...]</a></li>
+                            </c:if>
+
+                            <%--// 如果不是尾页, 要显示">>"和"尾页"按钮--%>
+                            <c:if test="${pageInfo.currentPage != pageInfo.totalPage && pageInfo.totalPage != 1 && pageInfo.totalPage != 0}">
+                                <li><a onclick="load(${pageInfo.currentPage+1})">&raquo;</a></li>
+                                <li><a onclick="load(${pageInfo.totalPage})">尾页</a></li>
+                            </c:if>
+
                         </ul>
                     </div>
                 </div>
+
+
+
+
+
+
+                <%--<div id="right1" class="col-xs-12 col-md-3">--%>
+                    <%--<p class="index1_info">借阅与归还信息</p>--%>
+                    <%--<hr>--%>
+                    <%--<p class="index1_date">2017-08-07 17:33:36</p>--%>
+                    <%--<p class="index1_con">祝一迪从祝一迪处借阅《计算机操作系统》</p>--%>
+                    <%--<p class="index1_date">2017-08-07 17:33:36</p>--%>
+                    <%--<p class="index1_con">祝一迪从祝一迪处借阅《计算机操作系统》</p>--%>
+                    <%--<p class="index1_date">2017-08-07 17:33:36</p>--%>
+                    <%--<p class="index1_con">祝一迪从祝一迪处借阅《计算机操作系统》</p>--%>
+                    <%--<p class="index1_date">2017-08-07 17:33:36</p>--%>
+                    <%--<p class="index1_con">祝一迪从祝一迪处借阅《计算机操作系统》</p>--%>
+                    <%--<div id="index_pingination">--%>
+                        <%--<ul class="pagination">--%>
+                            <%--<li><a href="#">&laquo;</a></li>--%>
+                            <%--<li class="pa_in"><a href="#">1</a></li>--%>
+                            <%--<li><a href="#">2</a></li>--%>
+                            <%--<li><a href="#">3</a></li>--%>
+                            <%--<li><a href="#">4</a></li>--%>
+                            <%--<li><a href="#">5</a></li>--%>
+                            <%--<li><a href="#">&raquo;</a></li>--%>
+                        <%--</ul>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
 
                 <div style="clear:both"></div>
 

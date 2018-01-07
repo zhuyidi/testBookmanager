@@ -10,6 +10,7 @@ import bookmanager.dao.dbservice.UserService;
 import bookmanager.model.po.BookLabelPO;
 import bookmanager.model.po.PagePO;
 import bookmanager.model.po.UserPO;
+import bookmanager.model.vo.borrowinfo.BorrowInfoVO;
 import bookmanager.model.vo.login.UserLoginVO;
 import bookmanager.utilclass.DateToString;
 import org.springframework.jdbc.core.JdbcOperations;
@@ -45,18 +46,10 @@ public class UserDaoTest {
         BorrowInfoService borrowInfoService = new BorrowInfoServiceImpl(jdbcOperations);
         PagePO pagePO = new PagePO(1, 2);
 
-
-        List<String> borrowTimes = borrowInfoService.getBorrowDateByPage(pagePO);
-        // 得到借阅的书名
-        List<String> bookNames = bookInfoService.getBookNameByBorrowInfoPage(pagePO);
-        // 得到借阅的书的所属者
-        List<String> owners = userService.getOwnerNameByBorrowInfoPage(pagePO);
-        // 得到借阅书的借阅者
-        List<String> users = userService.getUserNameByBorrowInfoPage(pagePO);
-
-        System.out.println(borrowTimes);
-        System.out.println(bookNames);
-        System.out.println(users);
+        List<BorrowInfoVO> borrowInfoVOS = borrowInfoService.getBorrowInfoVOByPage(pagePO);
+        List<String> owners = borrowInfoService.getBorrowInfoOwnerByPage(pagePO);
+        System.out.println(borrowInfoVOS);
         System.out.println(owners);
+
     }
  }

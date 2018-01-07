@@ -31,10 +31,9 @@ public class BookInfoServiceImpl implements BookInfoService {
     private final static String GET_BOOK_COUNT_BY_LABEL = "SELECT COUNT(*) AS COUNT FROM book_info where pk_id IN (" +
             "SELECT book_info_pk_id FROM book_relation_label WHERE book_label_pk_id IN (" +
             "SELECT pk_id FROM book_label WHERE parent_id = ?)) AND amount > 0";
-    private final static String GET_BOOKNAME_BY_BORROWINFO_PAGE =
-            "SELECT ugk_name FROM book_info WHERE pk_id in(SELECT book_info_pk_id FROM(" +
-                    "SELECT book_info_pk_id FROM borrow_info limit ?, ?) AS temp)";
-
+    private final static String GET_BOOK_BY_NAO = "SELECT * FROM book_info WHERE (" +
+            "ugk_name LIKE ? or author LIKE ?) UNION SELECT * FROM book_info WHERE " +
+            "ugk_uid IN((SELECT uid FROM cs_user WHERE name LIKE ?))";
 
     @Autowired
     public BookInfoServiceImpl(JdbcOperations jdbcOperations) {
@@ -72,10 +71,9 @@ public class BookInfoServiceImpl implements BookInfoService {
         return jdbcOperations.queryForObject(GET_BOOK_COUNT_BY_LABEL, Integer.class, labelId);
     }
 
-
-    public List<String> getBookNameByBorrowInfoPage(PagePO pagePO) {
-        return jdbcOperations.queryForList(GET_BOOKNAME_BY_BORROWINFO_PAGE,
-                String.class, pagePO.getBeginIndex(), pagePO.getEveryPage());
+    public List<BookInfoPO> getBookInfoByNAO(String keyWord) {
+        return jdbcOperations.query(GET_BOOK_BY_NAO,
+                JdbcRowMapper.newInstance(BookInfoPO.class), keyWord, keyWord);
     }
 
 }

@@ -1,10 +1,10 @@
 /**
  * Created by dela on 1/6/18.
  */
-function load(){
+function load(page){
     $.ajax({
         type:"post",//请求方式
-        url:"servlet/AccountInfo",//发送请求地址
+        url:"servlet/AccountInfo?page=" + page,//发送请求地址
         dataType:"json",
         data:{//发送给数据库的数据
         },

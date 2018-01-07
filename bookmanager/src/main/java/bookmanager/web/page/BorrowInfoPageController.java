@@ -5,6 +5,7 @@ import bookmanager.dao.dbservice.BorrowInfoService;
 import bookmanager.dao.dbservice.UserService;
 import bookmanager.model.po.BorrowInfoPO;
 import bookmanager.model.po.PagePO;
+import bookmanager.model.vo.borrowinfo.BorrowInfoVO;
 import bookmanager.utilclass.BorrowInfoStringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,17 +45,13 @@ public class BorrowInfoPageController {
         pagePO.setTotalPage((total  % 5 == 0) ? total / 5 : total / 5 + 1);
 
         // 得到一页的借阅信息
+        // 得到一页的书名/借书者/借阅时间
+        List<BorrowInfoVO> borrowInfoVOList = borrowInfoService.getBorrowInfoVOByPage(pagePO);
+        // 得到一页的所属者
+        List<String> ownerList = borrowInfoService.getBorrowInfoOwnerByPage(pagePO);
 
-        // 得到借阅时间
-        List<String> borrowTimes = borrowInfoService.getBorrowDateByPage(pagePO);
-        // 得到借阅的书名
-        List<String> bookNames = bookInfoService.getBookNameByBorrowInfoPage(pagePO);
-        // 得到借阅的书的所属者
-        List<String> owners = userService.getOwnerNameByBorrowInfoPage(pagePO);
-        // 得到借阅书的借阅者
-        List<String> users = userService.getUserNameByBorrowInfoPage(pagePO);
-
-        BorrowInfoStringUtil.getOnePageBorrowInfo(pagePO, borrowTimes, bookNames, owners, users);
+        // 应该使用ajax返回给前端的字符串
+        String result = BorrowInfoStringUtil.getOnePageBorrowInfo(pagePO, borrowInfoVOList, ownerList);
 
     }
 }

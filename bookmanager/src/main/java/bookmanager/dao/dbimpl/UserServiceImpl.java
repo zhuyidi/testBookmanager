@@ -23,11 +23,6 @@ public class UserServiceImpl implements UserService {
     private final static String GET_USER_BY_ID = "SELECT * FROM cs_user WHERE uid = ?";
     private final static String GET_PASSWORD_AND_UID_BY_NAME = "SELECT uid, password FROM cs_user WHERE name = ?";
     private final static String GET_USERNAMES_BY_UIDS = "SELECT name FROM cs_user WHERE uid IN (?)";
-    private final static String GET_USERNAME_BY_BORROWINFO_PAGE = "SELECT name FROM cs_user WHERE uid in(" +
-            "SELECT cs_user_uid FROM (SELECT cs_user_uid FROM borrow_info limit ?, ?) AS temp)";
-    private final static String GET_OWNERNAME_BY_BORROWINFO_PAGE = "SELECT name FROM cs_user WHERE uid in(" +
-            "SELECT ugk_uid FROM book_info WHERE pk_id IN(SELECT book_info_pk_id FROM(" +
-            "SELECT book_info_pk_id FROM borrow_info limit ?, ?) AS temp))";
 
     @Autowired
     public UserServiceImpl(JdbcOperations jdbc) {
@@ -49,16 +44,6 @@ public class UserServiceImpl implements UserService {
 
     public String getUsernameById(int id) {
         return jdbcOperations.queryForObject(GET_USERNAMES_BY_UIDS, String.class, id);
-    }
-
-    public List<String> getUserNameByBorrowInfoPage(PagePO pagePO) {
-        return jdbcOperations.queryForList(GET_USERNAME_BY_BORROWINFO_PAGE, String.class,
-                pagePO.getBeginIndex(), pagePO.getEveryPage());
-    }
-
-    public List<String> getOwnerNameByBorrowInfoPage(PagePO pagePO) {
-        return jdbcOperations.queryForList(GET_OWNERNAME_BY_BORROWINFO_PAGE, String.class,
-                pagePO.getBeginIndex(), pagePO.getEveryPage());
     }
 
 }

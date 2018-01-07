@@ -27,6 +27,6 @@ public interface BookInfoService {
     // 得到某一分类下的图书的总本数
     Integer getBookCountByLabel(int labelId);
 
-    // 得到借阅表里一页的借阅信息里的书名
-    List<String> getBookNameByBorrowInfoPage(PagePO pagePO);
+    // 根据书名/作者/所属者进行模糊查询
+    List<BookInfoPO> getBookInfoByNAO(String keyWord);
 }

@@ -24,7 +24,7 @@
                 <div id="index_input">
                     <form action="/search" method="post">
                         <input type="text" nam="keyword" placeholder="搜索书名/作者/归属者">
-                        <input type="submit" value="搜索">
+                        <input class="btn btn-link" type="submit" value="搜索" />
                         <%--<button class="btn btn-link">搜索</button>--%>
                     </form>
                 </div>

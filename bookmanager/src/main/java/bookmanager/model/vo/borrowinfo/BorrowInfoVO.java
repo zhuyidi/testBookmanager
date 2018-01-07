@@ -4,49 +4,48 @@ package bookmanager.model.vo.borrowinfo;
  * Created by dela on 1/6/18.
  */
 public class BorrowInfoVO {
-    private String date;
-    private String owner;
-    private String user;
-    private String bookName;
+    private String borrow_date;
+    private String name;
+    private String ugk_name;
 
     public BorrowInfoVO() { }
 
-    public BorrowInfoVO(String date, String owner, String user, String bookName) {
-        this.date = date;
-        this.owner = owner;
-        this.user = user;
-        this.bookName = bookName;
+    public BorrowInfoVO(String borrow_date, String name, String ugk_name) {
+        this.borrow_date = borrow_date;
+        this.name = name;
+        this.ugk_name = ugk_name;
     }
 
-    public String getDate() {
-        return date;
+    public String getBorrow_date() {
+        return borrow_date.substring(0, 19);
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setBorrow_date(String borrow_date) {
+        this.borrow_date = borrow_date;
     }
 
-    public String getOwner() {
-        return owner;
+    public String getName() {
+        return name;
     }
 
-    public void setOwner(String owner) {
-        this.owner = owner;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getUser() {
-        return user;
+    public String getUgk_name() {
+        return ugk_name;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUgk_name(String ugk_name) {
+        this.ugk_name = ugk_name;
     }
 
-    public String getBookName() {
-        return bookName;
-    }
-
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
+    @Override
+    public String toString() {
+        return "BorrowInfoVO{" +
+                "date='" + getBorrow_date() + '\'' +
+                ", user='" + name + '\'' +
+                ", ugk_name='" + ugk_name + '\'' +
+                '}';
     }
 }
