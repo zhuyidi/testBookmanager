@@ -86,13 +86,13 @@
 
                 <%--// 当当前页面不是第一页的时候, 要显示"首页"和"<<"按钮--%>
                 <c:if test="${pageInfo.currentPage != 1 && pageInfo.totalPage != 0}">
-                    <li><a href="/bookmanager/1?id=${labelid}">首页</a></li>
-                    <li><a href="/bookmanager/${pageInfo.currentPage-1}?id=${labelid}">&laquo;</a></li>
+                    <li><a href="/search/1">首页</a></li>
+                    <li><a href="/search/${pageInfo.currentPage-1}">&laquo;</a></li>
                 </c:if>
 
                 <%--// 当当前页面大于6页的时候, 要显示"[...]"按钮--%>
                 <c:if test="${pageInfo.currentPage > 6}">
-                    <li><a href="/bookmanager/${(pageInfo.currentPage/5-1)*5-1}?id=${labelid}">[...]</a></li>
+                    <li><a href="/search/${(pageInfo.currentPage/5-1)*5-1}">[...]</a></li>
                 </c:if>
 
                 <%--// 从当前这个五页起始页开始遍历--%>
@@ -103,7 +103,7 @@
                             <li class="pa_in"><a href="#">${pageInfo.currentPage}</a></li>
                         </c:if>
                         <c:if test="${i.count != pageInfo.currentPage}">
-                            <li><a href="/bookmanager/${i.count}?id=${labelid}">${i.count}</a></li>
+                            <li><a href="/search/${i.count}">${i.count}</a></li>
                         </c:if>
                     </c:if>
 
@@ -111,13 +111,13 @@
 
                 <%--// 如果不是最后一个五页的页码, 要在后面显示[...]按钮--%>
                 <c:if test="${((pageInfo.currentPage-1)/5*5+1 != (pageInfo.totalPage-1)/5*5+1) && pageInfo.totalPage > 6}">
-                    <li><a href="/bookmanager/${(pageInfo.currentPage+4)/5*5+1}?id=${labelid}">[...]</a></li>
+                    <li><a href="/search/${(pageInfo.currentPage+4)/5*5+1}">[...]</a></li>
                 </c:if>
 
                 <%--// 如果不是尾页, 要显示">>"和"尾页"按钮--%>
                 <c:if test="${pageInfo.currentPage != pageInfo.totalPage && pageInfo.totalPage != 1 && pageInfo.totalPage != 0}">
-                    <li><a href="/bookmanager/${pageInfo.currentPage+1}/?id=${labelid}">&raquo;</a></li>
-                    <li><a href="/bookmanager/${pageInfo.totalPage}/?id=${labelid}">尾页</a></li>
+                    <li><a href="/search/${pageInfo.currentPage+1}">&raquo;</a></li>
+                    <li><a href="/search/${pageInfo.totalPage}">尾页</a></li>
                 </c:if>
 
             </ul>

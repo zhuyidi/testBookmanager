@@ -8,6 +8,7 @@ import bookmanager.utilclass.BookUserMapUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,9 +33,9 @@ public class SearchBooksController {
         this.userService = userService;
     }
 
-    @RequestMapping(value = "/search", method = POST)
-    public String search(HttpServletRequest httpServletRequest, Model model) {
-        PagePO pagePO = new PagePO(1);
+    @RequestMapping(value = "/search/{page}", method = POST)
+    public String search(@PathVariable int page, HttpServletRequest httpServletRequest, Model model) {
+        PagePO pagePO = new PagePO(page);
 
         String keyword = httpServletRequest.getParameter("keyword");
         keyword = "%" + keyword + "%";
