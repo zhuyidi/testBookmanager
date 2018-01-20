@@ -28,5 +28,8 @@ public interface BookInfoService {
     Integer getBookCountByLabel(int labelId);
 
     // 根据书名/作者/所属者进行模糊查询
-    List<BookInfoPO> getBookInfoByNAO(String keyWord);
+    List<BookInfoPO> getBookInfoByNAOByPage(String keyWord, PagePO pagePO);
+
+    // 根据书名/作者/所属者进行模糊查询出书籍总量
+    Integer getBookCountByNAO(String keyWord);
 }

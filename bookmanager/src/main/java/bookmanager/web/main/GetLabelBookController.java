@@ -23,7 +23,7 @@ import java.util.Map;
  */
 
 @Controller
-@RequestMapping(value = "/label")
+@RequestMapping(value = "/bookmanager/label")
 public class GetLabelBookController {
     private BookInfoService bookInfoService;
     private UserService userService;

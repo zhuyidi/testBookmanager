@@ -23,9 +23,9 @@
                 <a id="head" href="index.jsp">XiyouLinux Group 图书借阅</a>
                 <div id="index_input">
                     <form action="/search" method="post">
-                        <input type="text" nam="keyword" placeholder="搜索书名/作者/归属者">
-                        <input class="btn btn-link" type="submit" value="搜索" />
-                        <%--<button class="btn btn-link">搜索</button>--%>
+                        <input type="text" name="keyword" placeholder="搜索书名/作者/归属者">
+                        <%--<input class="btn btn-link" type="submit" value="搜索" />--%>
+                        <button class="btn btn-link" href="/bookmanager/search">搜索</button>
                     </form>
                 </div>
                 <a id="index_sign" href="javascript:showDialog();">立即登录</a>
@@ -35,8 +35,9 @@
         <div id="main">
             <div id="tag">
                 <c:forEach items="${labels}" var="label">
-                    <a href="/label/${label.pkId}">${label.name}</a>
+                    <a href="/bookmanager/label/${label.pkId}">${label.name}</a>
                 </c:forEach>
+                <a id="tag_all" href="alltags.html">全部标签</a>
             </div>
 
             <div id="left">
@@ -101,6 +102,7 @@
                 </div>
                 
             </div>
+
             <div style="clear:both"></div>
         </div>
 

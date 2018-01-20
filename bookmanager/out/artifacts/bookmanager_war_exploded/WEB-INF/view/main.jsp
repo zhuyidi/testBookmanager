@@ -24,7 +24,8 @@
                 <a id="head" href="main.jsp">XiyouLinux Group 图书借阅</a>
                 <div id="index1_input">
                     <input type="text" placeholder="搜索书名/作者/归属者">
-                    <button class="btn btn-link">提交</button>
+                    <button class="btn btn-link" href="/bookmanager/search">搜索</button>
+                    <%--<button class="btn btn-link">提交</button>--%>
                     <a href="mybooks.html"><i class="fa fa-file-text fa-fw"></i>我的书籍</a>
                     <a href="pushbook.html"><i class="fa fa-tags fa-fw"></i>上传数据</a>
                 </div>
@@ -37,6 +38,7 @@
                 <c:forEach items="${labels}" var="label">
                     <a href="/label/${label.pkId}">${label.name}</a>
                 </c:forEach>
+                <a id="tag_all" href="alltags.html">全部标签</a>
             </div>
 
 

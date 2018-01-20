@@ -7,6 +7,7 @@ import bookmanager.dao.dbservice.BookInfoService;
 import bookmanager.dao.dbservice.BookLabelService;
 import bookmanager.dao.dbservice.BorrowInfoService;
 import bookmanager.dao.dbservice.UserService;
+import bookmanager.model.po.BookInfoPO;
 import bookmanager.model.po.BookLabelPO;
 import bookmanager.model.po.PagePO;
 import bookmanager.model.po.UserPO;
@@ -43,13 +44,13 @@ public class UserDaoTest {
 //        Date date = new Date();
 //        System.out.println(DateToString.getStringDate(date));
         BookInfoService bookInfoService = new BookInfoServiceImpl(jdbcOperations);
-        BorrowInfoService borrowInfoService = new BorrowInfoServiceImpl(jdbcOperations);
-        PagePO pagePO = new PagePO(1, 2);
-
-        List<BorrowInfoVO> borrowInfoVOS = borrowInfoService.getBorrowInfoVOByPage(pagePO);
-        List<String> owners = borrowInfoService.getBorrowInfoOwnerByPage(pagePO);
-        System.out.println(borrowInfoVOS);
-        System.out.println(owners);
+//        BorrowInfoService borrowInfoService = new BorrowInfoServiceImpl(jdbcOperations);
+//        PagePO pagePO = new PagePO(1, 2);
+//
+//        List<BorrowInfoVO> borrowInfoVOS = borrowInfoService.getBorrowInfoVOByPage(pagePO);
+//        List<String> owners = borrowInfoService.getBorrowInfoOwnerByPage(pagePO);
+//        System.out.println(borrowInfoVOS);
+//        System.out.println(owners);
 
     }
  }

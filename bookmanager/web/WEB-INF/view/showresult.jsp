@@ -25,7 +25,8 @@
             <a id="head" href="main.jsp">XiyouLinux Group 图书借阅</a>
             <div id="index1_input">
                 <input type="text" placeholder="搜索书名/作者/归属者">
-                <button class="btn btn-link">提交</button>
+                <button class="btn btn-link" href="/bookmanager/search">搜索</button>
+                <%--<button class="btn btn-link">提交</button>--%>
                 <a href="mybooks.html"><i class="fa fa-file-text fa-fw"></i>我的书籍</a>
                 <a href="pushbook.html"><i class="fa fa-tags fa-fw"></i>上传数据</a>
             </div>
@@ -39,11 +40,11 @@
 
 
         <c:forEach items="${books}" var="book">
-            <div class="rows">
-                <div class="col-xs-12 col-md-3 book_img">
+            <div class="rows" id="con">
+                <div class="col-xs-12 col-md-2 book_img">
                     <img src="/img/book0.jpeg">
                 </div>
-                <div class="book_info col-xs-12 col-md-9">
+                <div class="book_info col-xs-12 col-md-8">
                     <p>《${book.key.ugkName}》----- ${book.key.author}</p>
                     <p>${book.key.describ}</p>
                     <p><span><i class="fa fa-user"></i>${book.value}</span>
@@ -55,9 +56,30 @@
                     <button class="btn"><a href="showbook.html">点我借阅</a></button>
 
                 </div>
-
                 <div style="clear:both"></div>
             </div>
+
+
+
+            <%--<div class="rows">--%>
+                <%--<div class="col-xs-12 col-md-2 book_img">--%>
+                    <%--<img src="/img/book0.jpeg">--%>
+                <%--</div>--%>
+                <%--<div class="book_info col-xs-12 col-md-8">--%>
+                    <%--<p>《${book.key.ugkName}》----- ${book.key.author}</p>--%>
+                    <%--<p>${book.key.describ}</p>--%>
+                    <%--<p><span><i class="fa fa-user"></i>${book.value}</span>--%>
+                        <%--<span><i class="fa fa-book"></i>${book.key.amount}本</span>--%>
+                        <%--<span><i class="fa  fa-clock-o"></i>${book.key.uploadDate}</span>--%>
+                    <%--</p>--%>
+                <%--</div>--%>
+                <%--<div class="col-xs-12 col-md-2">--%>
+                    <%--<button class="btn"><a href="showbook.html">点我借阅</a></button>--%>
+
+                <%--</div>--%>
+
+                <%--<div style="clear:both"></div>--%>
+            <%--</div>--%>
         </c:forEach>
 
 
@@ -86,13 +108,13 @@
 
                 <%--// 当当前页面不是第一页的时候, 要显示"首页"和"<<"按钮--%>
                 <c:if test="${pageInfo.currentPage != 1 && pageInfo.totalPage != 0}">
-                    <li><a href="/search/1">首页</a></li>
-                    <li><a href="/search/${pageInfo.currentPage-1}">&laquo;</a></li>
+                    <li><a href="/search/${keyword}/1">首页</a></li>
+                    <li><a href="/search/${keyword}/${pageInfo.currentPage-1}?">&laquo;</a></li>
                 </c:if>
 
                 <%--// 当当前页面大于6页的时候, 要显示"[...]"按钮--%>
                 <c:if test="${pageInfo.currentPage > 6}">
-                    <li><a href="/search/${(pageInfo.currentPage/5-1)*5-1}">[...]</a></li>
+                    <li><a href="/search/${keyword}/${(pageInfo.currentPage/5-1)*5-1}">[...]</a></li>
                 </c:if>
 
                 <%--// 从当前这个五页起始页开始遍历--%>
@@ -103,7 +125,7 @@
                             <li class="pa_in"><a href="#">${pageInfo.currentPage}</a></li>
                         </c:if>
                         <c:if test="${i.count != pageInfo.currentPage}">
-                            <li><a href="/search/${i.count}">${i.count}</a></li>
+                            <li><a href="/search/${keyword}/${i.count}">${i.count}</a></li>
                         </c:if>
                     </c:if>
 
@@ -111,13 +133,13 @@
 
                 <%--// 如果不是最后一个五页的页码, 要在后面显示[...]按钮--%>
                 <c:if test="${((pageInfo.currentPage-1)/5*5+1 != (pageInfo.totalPage-1)/5*5+1) && pageInfo.totalPage > 6}">
-                    <li><a href="/search/${(pageInfo.currentPage+4)/5*5+1}">[...]</a></li>
+                    <li><a href="/search/${keyword}/${(pageInfo.currentPage+4)/5*5+1}">[...]</a></li>
                 </c:if>
 
                 <%--// 如果不是尾页, 要显示">>"和"尾页"按钮--%>
                 <c:if test="${pageInfo.currentPage != pageInfo.totalPage && pageInfo.totalPage != 1 && pageInfo.totalPage != 0}">
-                    <li><a href="/search/${pageInfo.currentPage+1}">&raquo;</a></li>
-                    <li><a href="/search/${pageInfo.totalPage}">尾页</a></li>
+                    <li><a href="/search/${keyword}/${pageInfo.currentPage+1}">&raquo;</a></li>
+                    <li><a href="/search/${keyword}/${pageInfo.totalPage}">尾页</a></li>
                 </c:if>
 
             </ul>

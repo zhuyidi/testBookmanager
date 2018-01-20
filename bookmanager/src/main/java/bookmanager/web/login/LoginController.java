@@ -1,7 +1,10 @@
 package bookmanager.web.login;
 
 import bookmanager.dao.dbservice.BookLabelService;
+import bookmanager.dao.dbservice.BorrowInfoService;
 import bookmanager.dao.dbservice.UserService;
+import bookmanager.model.po.PagePO;
+import bookmanager.model.vo.borrowinfo.BorrowInfoVO;
 import bookmanager.model.vo.login.UserLoginVO;
 import bookmanager.utilclass.MD5;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 /**
  * Created by dela on 11/27/17.
@@ -23,11 +27,14 @@ import java.io.UnsupportedEncodingException;
 public class LoginController {
     private UserService userService;
     private BookLabelService bookLabelService;
+    private BorrowInfoService borrowInfoService;
 
     @Autowired
-    public LoginController(UserService userService, BookLabelService bookLabelService) {
+    public LoginController(UserService userService, BookLabelService bookLabelService,
+                            BorrowInfoService borrowInfoService) {
         this.userService = userService;
         this.bookLabelService = bookLabelService;
+        this.borrowInfoService = borrowInfoService;
     }
 
     // 当URL为/login且请求类型为GET的时候, 默认返回index.jsp页面(即未登录主页面)
@@ -42,11 +49,18 @@ public class LoginController {
         String username = new String(user.getName().getBytes("iso-8859-1"), "utf-8");
 
         if (!username.equals("")) {
-            // 登录成功, 跳转到main.jsp页面
+            // 登录成功, 初始化main页面的借阅信息, 然后跳转到main.jsp页面
             if (checkPassword(username, user.getPassword(), user)) {
+                // 将uid设置到session里
                 session.setAttribute("uid", user.getUid());
 
-                httpServletRequest.setAttribute("bookLabel", bookLabelService.getBookLabelById(0));
+                // 初始化main页面的借阅信息(获取10条)
+                PagePO pagePO = new PagePO(1, 10);
+                List<BorrowInfoVO> borrowInfoVOList = borrowInfoService.getBorrowInfoVOByPage(pagePO);
+                List<String> ownerList = borrowInfoService.getBorrowInfoOwnerByPage(pagePO);
+
+
+
                 return "main";
             } else {
                 // 若不成功, 则带上错误参数返回index.jsp页面(未登录前首页)

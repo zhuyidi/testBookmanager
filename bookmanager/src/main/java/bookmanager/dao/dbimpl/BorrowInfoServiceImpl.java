@@ -23,7 +23,7 @@ public class BorrowInfoServiceImpl implements BorrowInfoService {
     private JdbcOperations jdbcOperations;
 
     private static final String GET_BORROWINFO_COUNT = "SELECT COUNT(*) AS COUNT FROM borrow_info";
-    private static final String GET_BORROWDATE_BY_PAGE = "SELECT name, borrow_date, ugk_name FROM " +
+    private static final String GET_BORROWDATE_BY_PAGE = "SELECT name, borrow_date, ugk_name, borrow_info.pk_id FROM " +
             "cs_user,book_info AS b,borrow_info WHERE cs_user_uid=uid AND  book_info_pk_id=b.pk_id " +
             "AND b.pk_id IN (SELECT book_info_pk_id FROM (" +
             "SELECT * FROM borrow_info LIMIT ?, ?) AS tp)";

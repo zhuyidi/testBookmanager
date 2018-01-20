@@ -1,8 +1,5 @@
 package bookmanager.utilclass;
 
-import bookmanager.dao.dbservice.BookInfoService;
-import bookmanager.dao.dbservice.UserService;
-import bookmanager.model.po.BorrowInfoPO;
 import bookmanager.model.po.PagePO;
 import bookmanager.model.vo.borrowinfo.BorrowInfoVO;
 

@@ -3,17 +3,19 @@ package bookmanager.model.vo.borrowinfo;
 /**
  * Created by dela on 1/6/18.
  */
-public class BorrowInfoVO {
+public class BorrowInfoVO implements Comparable<BorrowInfoVO>{
     private String borrow_date;
     private String name;
     private String ugk_name;
+    private int pk_id;
 
     public BorrowInfoVO() { }
 
-    public BorrowInfoVO(String borrow_date, String name, String ugk_name) {
+    public BorrowInfoVO(String borrow_date, String name, String ugk_name, int pk_id) {
         this.borrow_date = borrow_date;
         this.name = name;
         this.ugk_name = ugk_name;
+        this.pk_id = pk_id;
     }
 
     public String getBorrow_date() {
@@ -40,12 +42,25 @@ public class BorrowInfoVO {
         this.ugk_name = ugk_name;
     }
 
+    public int getPk_id() {
+        return pk_id;
+    }
+
+    public void setPk_id(int pk_id) {
+        this.pk_id = pk_id;
+    }
+
     @Override
     public String toString() {
         return "BorrowInfoVO{" +
-                "date='" + getBorrow_date() + '\'' +
-                ", user='" + name + '\'' +
+                "borrow_date='" + borrow_date + '\'' +
+                ", name='" + name + '\'' +
                 ", ugk_name='" + ugk_name + '\'' +
+                ", pk_id=" + pk_id +
                 '}';
+    }
+
+    public int compareTo(BorrowInfoVO o) {
+        return this.getPk_id() < o.getPk_id() ? 1 : -1;
     }
 }
