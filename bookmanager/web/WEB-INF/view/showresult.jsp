@@ -22,7 +22,7 @@
     <header>
         <div id="hea">
             <img id="index_head" src="/img/index_head.png" />
-            <a id="head" href="main.jsp">XiyouLinux Group 图书借阅</a>
+            <a id="head" href="/mainorindex">XiyouLinux Group 图书借阅</a>
             <div id="index1_input">
                 <input type="text" placeholder="搜索书名/作者/归属者">
                 <button class="btn btn-link" href="/bookmanager/search">搜索</button>
@@ -34,8 +34,8 @@
         </div>
     </header>
     <div id="main">
-        <div id="main_head"><a>首页</a><i class="fa fa-lg fa-angle-right"></i><a href="alltags.html">全部标签</a>
-            <i class="fa fa-lg fa-angle-right"></i>汇编
+        <div id="main_head"><a href="/mainorindex">首页</a><i class="fa fa-lg fa-angle-right"></i><a href="alltags.html">搜索</a>
+            <i class="fa fa-lg fa-angle-right"></i>${keyword}
         </div>
 
 
@@ -58,50 +58,7 @@
                 </div>
                 <div style="clear:both"></div>
             </div>
-
-
-
-            <%--<div class="rows">--%>
-                <%--<div class="col-xs-12 col-md-2 book_img">--%>
-                    <%--<img src="/img/book0.jpeg">--%>
-                <%--</div>--%>
-                <%--<div class="book_info col-xs-12 col-md-8">--%>
-                    <%--<p>《${book.key.ugkName}》----- ${book.key.author}</p>--%>
-                    <%--<p>${book.key.describ}</p>--%>
-                    <%--<p><span><i class="fa fa-user"></i>${book.value}</span>--%>
-                        <%--<span><i class="fa fa-book"></i>${book.key.amount}本</span>--%>
-                        <%--<span><i class="fa  fa-clock-o"></i>${book.key.uploadDate}</span>--%>
-                    <%--</p>--%>
-                <%--</div>--%>
-                <%--<div class="col-xs-12 col-md-2">--%>
-                    <%--<button class="btn"><a href="showbook.html">点我借阅</a></button>--%>
-
-                <%--</div>--%>
-
-                <%--<div style="clear:both"></div>--%>
-            <%--</div>--%>
         </c:forEach>
-
-
-
-        <%--<div class="rows" id="con">--%>
-            <%--<div class="col-xs-12 col-md-2 book_img">--%>
-                <%--<img src="/img/book0.jpeg">--%>
-            <%--</div>--%>
-            <%--<div class="book_info col-xs-12 col-md-8">--%>
-                <%--<p>《计算机操作系统》-----黄水松</p>--%>
-                <%--<p>计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读计算机专业必读</p>--%>
-                <%--<p><span><i class="fa fa-user"></i>祝一迪</span>--%>
-                    <%--<span><i class="fa fa-book"></i>被借4次</span>--%>
-                <%--</p>--%>
-            <%--</div>--%>
-            <%--<div class="col-xs-12 col-md-2">--%>
-                <%--<button class="btn"><a href="showbook.html">点我借阅</a></button>--%>
-
-            <%--</div>--%>
-            <%--<div style="clear:both"></div>--%>
-        <%--</div>--%>
-
 
         <div id="index_pingination">
             <ul class="pagination">
@@ -163,7 +120,7 @@
                 <p class="footer_head">社区</p>
                 <p>邮件列表：<a>xiyoulinux</a></p>
                 <p>新浪微博：<a>@西邮Linux兴趣小组</a></p>
-                <p>GUN：<a>GUN's Not Unix</a></p>
+                <p>GUN：<a>GNU's Not Unix</a></p>
                 <p>LWN：<a>Linux Weekly News</a></p>
                 <p>Linux Story：<a>Linux Story</a></p>
             </div>
@@ -179,7 +136,7 @@
             <div style="clear: both;height:0;"></div>
         </div>
         <div id="foot">
-            <p>Copyright @ 2006-2017 西邮Linux兴趣小组 </p>
+            <p>Copyright @ 2006-2018 西邮Linux兴趣小组 </p>
             <p>All Rights Reserved</p>
         </div>
     </footer>

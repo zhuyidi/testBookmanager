@@ -20,7 +20,7 @@
         <header>
             <div id="hea">
                 <img id="index_head" src="/img/index_head.png" />
-                <a id="head" href="index.jsp">XiyouLinux Group 图书借阅</a>
+                <a id="head" href="/bookmanager">XiyouLinux Group 图书借阅</a>
                 <div id="index_input">
                     <form action="/search" method="post">
                         <input type="text" name="keyword" placeholder="搜索书名/作者/归属者">
@@ -121,7 +121,7 @@
                     <p class="footer_head">社区</p>
                     <p>邮件列表：<a>xiyoulinux</a></p>
                     <p>新浪微博：<a>@西邮Linux兴趣小组</a></p>
-                    <p>GUN：<a>GUN's Not Unix</a></p>
+                    <p>GUN：<a>GNU's Not Unix</a></p>
                     <p>LWN：<a>Linux Weekly News</a></p>
                     <p>Linux Story：<a>Linux Story</a></p>
                 </div>
@@ -137,7 +137,7 @@
                 <div style="clear: both;height:0;"></div>
             </div>
             <div id="foot">
-                <p>Copyright @ 2006-2017 西邮Linux兴趣小组 </p>
+                <p>Copyright @ 2006-2018 西邮Linux兴趣小组 </p>
                 <p>All Rights Reserved</p>
             </div>
         </footer>
