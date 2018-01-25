@@ -35,7 +35,7 @@
         <div id="main">
             <div id="tag">
                 <c:forEach items="${labels}" var="label">
-                    <a href="/bookmanager/label/${label.pkId}">${label.name}</a>
+                    <a href="label/${label.pkId}">${label.name}</a>
                 </c:forEach>
                 <a id="tag_all" href="alltags.html">全部标签</a>
             </div>

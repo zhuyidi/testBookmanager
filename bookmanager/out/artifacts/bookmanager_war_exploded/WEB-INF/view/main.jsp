@@ -83,7 +83,10 @@
                             <c:forEach varStatus="i" begin="${(pageInfo.currentPage-1)/5*5+1}" end="${(pageInfo.currentPage-1)/5*5+5}">
 
                                 <c:if test="${i.count <= pageInfo.totalPage}">
+                                    <li><a href="/bookmanager/${i.count}">${i.count}</a></li>
+                                   <%--####--%>
                                     <c:if test="${i.count == pageInfo.currentPage}">
+
                                         <li class="pa_in"><a href="#">${pageInfo.currentPage}</a></li>
                                     </c:if>
                                     <c:if test="${i.count != pageInfo.currentPage}">
@@ -94,7 +97,8 @@
                             </c:forEach>
 
                             <%--// 如果不是最后一个五页的页码, 要在后面显示[...]按钮--%>
-                            <c:if test="${((pageInfo.currentPage-1)/5*5+1 != (pageInfo.totalPage-1)/5*5+1) && pageInfo.totalPage > 6}">
+                           <%--####--%>
+                            <c:if test="${((((pageInfo.currentPage-1)/5*5+1) != (pageInfo.totalPage-1)/5*5+1)) && pageInfo.totalPage > 6}">
                                 <li><a href="/bookmanager/${(pageInfo.currentPage+4)/5*5+1}">[...]</a></li>
                             </c:if>
 
@@ -118,14 +122,16 @@
                     <hr>
 
                     <c:forEach items="${borrowInfo}" var="borrow" varStatus="i" begin="0">
-                        <p id="time"+${i.count} class="index1_date">${borrow.key.borrow_date}</p>
-                        <p id="message"+${i.count} class="index1_con">${borrow.value}</p>
+                        <p id="time${i.count}" class="index1_date">${borrow.key.borrow_date}</p>
+                        <p id="message${i.count}" class="index1_con">${borrow.value}</p>
                     </c:forEach>
+
+                    <p id="time" class="index1_date">2017-08-07 17:33:36</p>
+                    <p id="message" class="index1_con">祝一迪从祝一迪处借阅《计算机操作系统》</p>
 
                     <%--<p id="time0" class="index1_date">2017-08-07 17:33:36</p>--%>
                     <%--<p id="message0" class="index1_con">${user}从${owner}处借阅《${bookname}》</p>--%>
-                    <%--<p class="index1_date">2017-08-07 17:33:36</p>--%>
-                    <%--<p class="index1_con">祝一迪从祝一迪处借阅《计算机操作系统》</p>--%>
+
                     <%--<p class="index1_date">2017-08-07 17:33:36</p>--%>
                     <%--<p class="index1_con">祝一迪从祝一迪处借阅《计算机操作系统》</p>--%>
                     <%--<p class="index1_date">2017-08-07 17:33:36</p>--%>
@@ -174,7 +180,6 @@
                 </div>
                 <div style="clear:both"></div>
 
-            // row
             </div>
             <div style="clear:both"></div>
         </div>
@@ -184,37 +189,36 @@
                 $.ajax({
                     type:"post",//请求方式
                     url:"/borrowinfo/" + page,//发送请求地址
-                    dataType:"text",
+                    dataType:"json",
                     data:{//发送给数据库的数据
                     },
                     //请求成功后的回调函数有两个参数
                     success:function(data){
+                        var data =arguments[0];
+
                         console.log(arguments);
                         // for (var i in data) {
                         //     $("#" + i).text(data.i);
                         // }
 
-                        $("#time0").text(data.time0);
-                        $("#message0").text(data.message0);
-
-                        $("#time1").text(data.time1);
-                        $("#message1").text(data.message1);
-                        $("#time2").text(data.time2);
-                        $("#message2").text(data.message2);
-                        $("#time3").text(data.time3);
-                        $("#message3").text(data.message3);
-                        $("#time4").text(data.time4);
-                        $("#message4").text(data.message4);
-                        $("#time5").text(data.time5);
-                        $("#message5").text(data.message5);
-                        $("#time6").text(data.time6);
-                        $("#message6").text(data.message6);
-                        $("#time7").text(data.time7);
-                        $("#message7").text(data.message7);
-                        $("#time8").text(data.time8);
-                        $("#message8").text(data.message8);
-                        $("#time9").text(data.time9);
-                        $("#message9").text(data.message9);
+                        $("#time").text(data.time1);
+                        $("#message").text(data.message1);
+                        $("#time2").text(data[2].time2);
+                        $("#message2").text(data[2].message2);
+                        $("#time3").text(data[3].time3);
+                        $("#message3").text(data[3].message3);
+                        $("#time4").text(data[4].time4);
+                        $("#message4").text(data[4].message4);
+                        $("#time5").text(data[5].time5);
+                        $("#message5").text(data[5].message5);
+                        $("#time6").text(data[6].time6);
+                        $("#message6").text(data[6].message6);
+                        $("#time7").text(data[7].time7);
+                        $("#message7").text(data[7].message7);
+                        $("#time8").text(data[8].time8);
+                        $("#message8").text(data[8].message8);
+                        $("#time9").text(data[9].time9);
+                        $("#message9").text(data[9].message9);
                     }
                 });
             }
