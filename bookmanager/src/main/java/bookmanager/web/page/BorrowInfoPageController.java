@@ -64,15 +64,19 @@ public class BorrowInfoPageController {
 //        JSONArray borrowJson = new JSONArray();
         Map<BorrowInfoVO, String> borrowInfoMap = BorrowInfoMapUtil.getBorrowInfo(borrowInfoVOList, ownerList);
         System.out.println("map: " + borrowInfoMap);
+        borrowJson.put("currentPage", pagePO.getCurrentPage());
+        borrowJson.put("totalPage", pagePO.getTotalCount());
 
         int i = 0;
         for(Map.Entry<BorrowInfoVO, String> key : borrowInfoMap.entrySet()) {
             borrowJson.put("time" + i, key.getKey().getBorrow_date());
             borrowJson.put("message" + i, key.getValue());
-//            System.out.println("getkey:" + borrowInfoMap.get(key), borrowInfoMap.);
-//            System.out.println(temp);
-//            borrowJson.put(temp);
             i++;
+        }
+
+        for(int j = i; j <= 10; j++) {
+            borrowJson.put("time" + j, "");
+            borrowJson.put("message" + j, "");
         }
 
 //        String result = BorrowInfoStringUtil.getOnePageBorrowInfo(pagePO, borrowInfoVOList, ownerList);
